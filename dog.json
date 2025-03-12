@@ -1,0 +1,173 @@
+[
+  {
+    "breed": "Boxer",
+    "image_url": "https://example.com/images/boxer.jpg",
+    "basic_info": {
+      "lifespan": "8-10 years", 
+      "height": "21-25 inches",
+      "weight": "50-85 pounds"
+    },
+    "history": [
+      "The Boxer descends from two types of German Bullenbeisers, or bull-biters.",
+      "The Bullenbeisers were originally used to chase large game, such as boar, deer, and bear, through the forests, grabbing and hanging on until the hunter could arrive to dispatch it.",
+      "In the early 1800s, German hunters tried to improve their hunting dogs by crossing their Bullenbeisers with mastiff-type dogs and with Bulldogs.",
+      "By the late 1800s, these dogs were popular as butcher's dogs, controlling cattle in slaughter yards.",
+      "The slaughter yard dogs were called Boxl, which may have been the origin of the name, Boxer.",
+      "The Boxer was established by 1895.",
+      "The Boxer was one of the first breeds used as a police and military dog.",
+      "In 1904, the AKC recognized the Boxer.",
+      "The breed remained relatively obscure in America until the 1940s, when it began its slow but steady rise."
+    ],
+    "behavior": [
+      "Makes a loyal and protective companion.",
+      "Playful and gentle with children.",
+      "Fairly outgoing toward strangers.",
+      "Generally good with other dogs, but some can be aggressive toward strange dogs.",
+      "Generally good with other pets.",
+      "Learns quickly, but can be both sensitive and stubborn.",
+      "Does best with a firm owner who can combine reward-based training with good control and leadership."
+    ],
+    "exercise_needs": [
+      "Makes a calm and alert housedog, but can be restless unless it receives adequate exercise.",
+      "Requires daily exercise in the form of a long walk, jog or energetic games.",
+      "The Boxer's short muzzle makes it intolerant of heat.",
+      "The Boxer's short coat makes it intolerant of very cold weather.",
+      "Obedience training is essential not only for control, but for the mental exercise it provides.",
+      "Boxers compete in obedience and agility successfully."
+    ],
+    "grooming": [
+      "Coat is short and shiny.",
+      "It needs only occasional brushing, once every week or so, to remove dead hair.",
+      "Shedding is average."
+    ],
+    "nutrition": [
+      "Boxers tend to stay in good weight.",
+      "Adult dogs should be fed a balanced diet, with restricted calories if the dog starts to gain too much weight.",
+      "Puppies should be fed a large-breed growth food, which slows their growing rate but not final size. This may decrease the incidence or severity of hip dysplasia in adults."
+    ],
+    "traits": {
+      "jogging_partner": 4,
+      "lap_dog": 2,
+      "good_with_children": 5,
+      "warm_weather": 2,
+      "cold_weather": 2,
+      "grooming_requirements": 1,
+      "shedding": 3,
+      "barking": 3,
+      "ease_of_training": 3
+    }
+  },
+  {
+    "breed": "Golden Retriever",
+    "image_url": "https://example.com/images/golden-retriever.jpg",
+    "basic_info": {
+      "lifespan": "10-12 years",
+      "height": "21-24 inches",
+      "weight": "55-75 pounds"
+    },
+    "history": [
+      "Developed in Scotland in the mid-19th century as a retriever for hunting and shooting parties.",
+      "Lord Tweedmouth is credited with developing the breed by crossing a Yellow Retriever with the now-extinct Tweed Water Spaniel.",
+      "Irish Setter, Bloodhound, and more Tweed Water Spaniel were added later.",
+      "First exhibited in 1908 at the UK's Crystal Palace show as 'Flat Coats - Golden'.",
+      "Officially recognized by The Kennel Club in 1913.",
+      "Gained popularity in the US in the 1970s and has been one of America's most popular dog breeds for decades."
+    ],
+    "behavior": [
+      "Famously friendly, reliable, and trustworthy.",
+      "Excellent family dogs with a patient, kindly demeanor.",
+      "Highly social and gets along well with other dogs and pets.",
+      "Eager to please and highly trainable.",
+      "Intelligent and devoted companions.",
+      "Retains puppy-like playfulness well into adulthood.",
+      "Generally not effective as guard dogs due to their friendly nature."
+    ],
+    "exercise_needs": [
+      "Requires at least one hour of moderate exercise daily.",
+      "Enjoys swimming, retrieving games, and outdoor activities.",
+      "Mental stimulation through training and play is important.",
+      "Can be prone to weight gain without adequate exercise.",
+      "Excels in dog sports like obedience, agility, tracking, and field trials."
+    ],
+    "grooming": [
+      "Dense, water-repellent double coat with moderate shedding year-round and heavy seasonal shedding.",
+      "Requires brushing at least once or twice weekly, more during shedding seasons.",
+      "Ears should be checked regularly to prevent infections.",
+      "Occasional baths help keep coat clean and reduce shedding."
+    ],
+    "nutrition": [
+      "Diet should be appropriate to the dog's age, size, and activity level.",
+      "Prone to obesity, so careful monitoring of food intake and weight is important.",
+      "High-quality dog food, whether commercially manufactured or home-prepared, is essential.",
+      "Clean, fresh water should be available at all times."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 3,
+      "good_with_children": 5,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 4,
+      "shedding": 5,
+      "barking": 2,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://example.com/images/german-shepherd.jpg",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  }
+]
