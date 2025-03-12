@@ -1,7 +1,7 @@
 [
   {
     "breed": "Boxer",
-    "image_url": "https://example.com/images/boxer.jpg",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
     "basic_info": {
       "lifespan": "8-10 years", 
       "height": "21-25 inches",
@@ -59,7 +59,7 @@
   },
   {
     "breed": "Golden Retriever",
-    "image_url": "https://example.com/images/golden-retriever.jpg",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
     "basic_info": {
       "lifespan": "10-12 years",
       "height": "21-24 inches",
@@ -115,7 +115,7 @@
   },
   {
     "breed": "German Shepherd",
-    "image_url": "https://example.com/images/german-shepherd.jpg",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
     "basic_info": {
       "lifespan": "9-13 years",
       "height": "22-26 inches",
