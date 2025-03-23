@@ -169,5 +169,347 @@
       "barking": 3,
       "ease_of_training": 5
     }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "German Shepherd",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "9-13 years",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds"
+    },
+    "history": [
+      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
+      "Originally bred for herding sheep and protecting flocks.",
+      "First breed entry was registered in 1899.",
+      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
+      "Introduced to the United States in the early 1900s.",
+      "Widely used in police work, military service, search and rescue, and as service dogs."
+    ],
+    "behavior": [
+      "Intelligent, confident, and courageous.",
+      "Loyal and protective of their family.",
+      "Can be aloof with strangers but not usually aggressive without cause.",
+      "Strong work ethic and desire to have a purpose.",
+      "Forms strong bonds with family members.",
+      "Highly trainable with consistent leadership.",
+      "Requires early socialization to develop well-balanced temperament."
+    ],
+    "exercise_needs": [
+      "High energy breed requiring significant daily exercise.",
+      "Needs at least 1-2 hours of physical activity daily.",
+      "Mental stimulation through training and problem-solving is essential.",
+      "Excels in dog sports like obedience, tracking, herding, and agility.",
+      "Without adequate exercise and mental stimulation, may develop behavioral problems."
+    ],
+    "grooming": [
+      "Double coat with a dense outer coat and thick undercoat.",
+      "Sheds year-round with heavy seasonal shedding (blowing coat).",
+      "Requires brushing 3-4 times a week, daily during shedding seasons.",
+      "Bathing only when necessary to preserve natural oils in coat.",
+      "Regular nail trimming, ear cleaning, and dental care needed."
+    ],
+    "nutrition": [
+      "Diet should be high-quality and appropriate for age, size, and activity level.",
+      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
+      "Careful monitoring of weight is important to prevent obesity.",
+      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+    ],
+    "traits": {
+      "jogging_partner": 5,
+      "lap_dog": 1,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 3,
+      "ease_of_training": 5
+    }
   }
 ]
