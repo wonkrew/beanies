@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Breed Form</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .array-inputs {
+            margin-bottom: 10px;
+        }
+
+        .array-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .array-input-group input {
+            flex: 1;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .add-item-btn {
+            background-color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .trait-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trait-item label {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .trait-item input {
+            width: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <img src="https://cdn-icons-png.flaticon.com/512/1998/1998592.png" alt="Dog Breeds Logo">
+                <span>Dog Breeds</span>
+            </a>
+            <div class="nav-search">
+                <input type="text" placeholder="Search...">
+                <span class="nav-search-icon">🔍</span>
+            </div>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Add Breed</a>
+                <a href="/breeds.html" class="nav-link">View Breeds</a>
+            </div>
+            <div class="scroll-progress"></div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Add New Dog Breed</h1>
+        <form id="dogBreedForm">
+            <div class="form-grid">
+                <!-- Basic Info Section -->
+                <div class="form-section">
+                    <h3>Basic Information</h3>
+                    <div class="form-group">
+                        <label for="breed">Breed Name:</label>
+                        <input type="text" id="breed" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image_url">Image URL:</label>
+                        <input type="text" id="image_url" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lifespan">Lifespan:</label>
+                        <input type="text" id="lifespan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height:</label>
+                        <input type="text" id="height" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight:</label>
+                        <input type="text" id="weight" required>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div class="form-section">
+                    <h3>History</h3>
+                    <div id="historyInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="history-item" placeholder="Enter historical fact">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('historyInputs', 'history-item')">Add History</button>
+                </div>
+
+                <!-- Behavior Section -->
+                <div class="form-section">
+                    <h3>Behavior</h3>
+                    <div id="behaviorInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="behavior-item" placeholder="Enter behavior trait">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('behaviorInputs', 'behavior-item')">Add Behavior</button>
+                </div>
+
+                <!-- Exercise Section -->
+                <div class="form-section">
+                    <h3>Exercise Needs</h3>
+                    <div id="exerciseInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="exercise-item" placeholder="Enter exercise need">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('exerciseInputs', 'exercise-item')">Add Exercise</button>
+                </div>
+
+                <!-- Grooming Section -->
+                <div class="form-section">
+                    <h3>Grooming</h3>
+                    <div id="groomingInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="grooming-item" placeholder="Enter grooming requirement">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('groomingInputs', 'grooming-item')">Add Grooming</button>
+                </div>
+
+                <!-- Nutrition Section -->
+                <div class="form-section">
+                    <h3>Nutrition</h3>
+                    <div id="nutritionInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="nutrition-item" placeholder="Enter nutrition information">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('nutritionInputs', 'nutrition-item')">Add Nutrition</button>
+                </div>
+
+                <!-- Traits Section -->
+                <div class="form-section full-width">
+                    <h3>Traits (Rate 1-5)</h3>
+                    <div class="traits-grid">
+                        <div class="trait-item">
+                            <label for="jogging_partner">Jogging Partner:</label>
+                            <input type="number" id="jogging_partner" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="lap_dog">Lap Dog:</label>
+                            <input type="number" id="lap_dog" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="good_with_children">Good with Children:</label>
+                            <input type="number" id="good_with_children" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="warm_weather">Warm Weather:</label>
+                            <input type="number" id="warm_weather" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="cold_weather">Cold Weather:</label>
+                            <input type="number" id="cold_weather" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="grooming_requirements">Grooming Requirements:</label>
+                            <input type="number" id="grooming_requirements" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="shedding">Shedding:</label>
+                            <input type="number" id="shedding" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="barking">Barking:</label>
+                            <input type="number" id="barking" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="ease_of_training">Ease of Training:</label>
+                            <input type="number" id="ease_of_training" min="1" max="5" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 20px;">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+    <script src="js/navbar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

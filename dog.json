@@ -3,7 +3,7 @@
     "breed": "Boxer",
     "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
     "basic_info": {
-      "lifespan": "8-10 years", 
+      "lifespan": "8-10 years",
       "height": "21-25 inches",
       "weight": "50-85 pounds"
     },
@@ -510,6 +510,31 @@
       "shedding": 5,
       "barking": 3,
       "ease_of_training": 5
+    }
+  },
+  {
+    "breed": "Hillary England",
+    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
+    "basic_info": {
+      "lifespan": "8-10 years",
+      "height": "21-25 inches",
+      "weight": "50-85 pounds"
+    },
+    "history": [],
+    "behavior": [],
+    "exercise_needs": [],
+    "grooming": [],
+    "nutrition": [],
+    "traits": {
+      "jogging_partner": 2,
+      "lap_dog": 4,
+      "good_with_children": 5,
+      "warm_weather": 3,
+      "cold_weather": 1,
+      "grooming_requirements": 5,
+      "shedding": 3,
+      "barking": 4,
+      "ease_of_training": 2
     }
   }
 ]

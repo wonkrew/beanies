@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Dog Breed</title>
+    <link rel="stylesheet" href="styles/navbar.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ddd;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .form-section {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #dee2e6;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #444;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="url"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .array-inputs {
+            margin-bottom: 10px;
+        }
+
+        .array-input-group {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .array-input-group input {
+            flex: 1;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .add-item-btn {
+            background-color: #28a745;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+
+        .remove-btn {
+            background-color: #dc3545;
+            padding: 4px 12px;
+        }
+
+        .traits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .trait-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trait-item label {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .trait-item input {
+            width: 60px;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+
+        .back-btn:hover {
+            background: #5a6268;
+        }
+
+        .submit-btn {
+            background: #007bff;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #28a745;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 4px;
+            transition: all 0.5s;
+            z-index: 1000;
+        }
+
+        h3 {
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .traits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="nav-brand">
+                <img src="https://cdn-icons-png.flaticon.com/512/1998/1998592.png" alt="Dog Breeds Logo">
+                <span>Dog Breeds</span>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link">Add Breed</a>
+                <a href="/breeds.html" class="nav-link">View Breeds</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="breeds.html" class="back-btn">← Back to Breeds</a>
+        <h1>Edit Dog Breed</h1>
+        <form id="editBreedForm">
+            <div class="form-grid">
+                <!-- Basic Info Section -->
+                <div class="form-section">
+                    <h3>Basic Information</h3>
+                    <div class="form-group">
+                        <label for="breed">Breed Name*</label>
+                        <input type="text" id="breed" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image_url">Image URL*</label>
+                        <input type="url" id="image_url" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lifespan">Lifespan*</label>
+                        <input type="text" id="lifespan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height*</label>
+                        <input type="text" id="height" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight*</label>
+                        <input type="text" id="weight" required>
+                    </div>
+                </div>
+
+                <!-- History Section -->
+                <div class="form-section">
+                    <h3>History</h3>
+                    <div id="historyInputs" class="array-inputs"></div>
+                    <button type="button" class="add-item-btn" onclick="addInput('historyInputs', 'history-item')">Add History Item</button>
+                </div>
+
+                <!-- Behavior Section -->
+                <div class="form-section">
+                    <h3>Behavior</h3>
+                    <div id="behaviorInputs" class="array-inputs"></div>
+                    <button type="button" class="add-item-btn" onclick="addInput('behaviorInputs', 'behavior-item')">Add Behavior Item</button>
+                </div>
+
+                <!-- Exercise Section -->
+                <div class="form-section">
+                    <h3>Exercise Needs</h3>
+                    <div id="exerciseInputs" class="array-inputs"></div>
+                    <button type="button" class="add-item-btn" onclick="addInput('exerciseInputs', 'exercise-item')">Add Exercise Item</button>
+                </div>
+
+                <!-- Grooming Section -->
+                <div class="form-section">
+                    <h3>Grooming</h3>
+                    <div id="groomingInputs" class="array-inputs"></div>
+                    <button type="button" class="add-item-btn" onclick="addInput('groomingInputs', 'grooming-item')">Add Grooming Item</button>
+                </div>
+
+                <!-- Nutrition Section -->
+                <div class="form-section">
+                    <h3>Nutrition</h3>
+                    <div id="nutritionInputs" class="array-inputs"></div>
+                    <button type="button" class="add-item-btn" onclick="addInput('nutritionInputs', 'nutrition-item')">Add Nutrition Item</button>
+                </div>
+
+                <!-- Traits Section -->
+                <div class="form-section full-width">
+                    <h3>Traits (Rate 1-5)</h3>
+                    <div class="traits-grid">
+                        <div class="trait-item">
+                            <label for="jogging_partner">Jogging Partner:</label>
+                            <input type="number" id="jogging_partner" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="lap_dog">Lap Dog:</label>
+                            <input type="number" id="lap_dog" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="good_with_children">Good with Children:</label>
+                            <input type="number" id="good_with_children" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="warm_weather">Warm Weather:</label>
+                            <input type="number" id="warm_weather" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="cold_weather">Cold Weather:</label>
+                            <input type="number" id="cold_weather" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="grooming_requirements">Grooming Requirements:</label>
+                            <input type="number" id="grooming_requirements" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="shedding">Shedding:</label>
+                            <input type="number" id="shedding" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="barking">Barking:</label>
+                            <input type="number" id="barking" min="1" max="5" required>
+                        </div>
+                        <div class="trait-item">
+                            <label for="ease_of_training">Ease of Training:</label>
+                            <input type="number" id="ease_of_training" min="1" max="5" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Update Breed</button>
+        </form>
+    </div>
+
+    <script src="js/navbar.js"></script>
+    <script>
+        // Function to get URL parameters
+        function getUrlParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Function to add new input fields for arrays
+        function addInput(containerId, className) {
+            const container = document.getElementById(containerId);
+            const newGroup = document.createElement('div');
+            newGroup.className = 'array-input-group';
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = className;
+            input.placeholder = `Enter ${containerId.replace('Inputs', '').toLowerCase()} item`;
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.textContent = 'Remove';
+            removeBtn.className = 'remove-btn';
+            removeBtn.onclick = () => newGroup.remove();
+            
+            newGroup.appendChild(input);
+            newGroup.appendChild(removeBtn);
+            container.appendChild(newGroup);
+        }
+
+        // Function to get all input values from array fields
+        function getArrayInputs(className) {
+            return Array.from(document.getElementsByClassName(className))
+                .map(input => input.value.trim())
+                .filter(value => value !== '');
+        }
+
+        // Function to show success message
+        function showSuccessMessage(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.textContent = message;
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.style.opacity = '0';
+                successDiv.style.transform = 'translateY(-20px)';
+                setTimeout(() => successDiv.remove(), 500);
+            }, 3000);
+        }
+
+        // Function to populate array inputs
+        function populateArrayInputs(containerId, className, items) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = items.map(item => `
+                <div class="array-input-group">
+                    <input type="text" class="${className}" value="${item}">
+                    <button type="button" class="remove-btn" onclick="this.parentElement.remove()">Remove</button>
+                </div>
+            `).join('');
+        }
+
+        // Function to load breed data and populate form
+        async function loadBreedData() {
+            try {
+                const breedName = getUrlParam('breed');
+                if (!breedName) {
+                    throw new Error('Breed name not provided');
+                }
+
+                const response = await fetch('http://localhost:3000/api/dogs');
+                if (!response.ok) {
+                    throw new Error('Failed to load breeds');
+                }
+                
+                const breeds = await response.json();
+                const breed = breeds.find(b => b.breed === decodeURIComponent(breedName));
+                
+                if (!breed) {
+                    throw new Error('Breed not found');
+                }
+
+                // Populate basic info
+                document.getElementById('breed').value = breed.breed;
+                document.getElementById('image_url').value = breed.image_url;
+                document.getElementById('lifespan').value = breed.basic_info.lifespan;
+                document.getElementById('height').value = breed.basic_info.height;
+                document.getElementById('weight').value = breed.basic_info.weight;
+
+                // Populate array fields
+                populateArrayInputs('historyInputs', 'history-item', breed.history);
+                populateArrayInputs('behaviorInputs', 'behavior-item', breed.behavior);
+                populateArrayInputs('exerciseInputs', 'exercise-item', breed.exercise_needs);
+                populateArrayInputs('groomingInputs', 'grooming-item', breed.grooming);
+                populateArrayInputs('nutritionInputs', 'nutrition-item', breed.nutrition);
+
+                // Populate traits
+                Object.entries(breed.traits).forEach(([trait, value]) => {
+                    document.getElementById(trait).value = value;
+                });
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to load breed data. Please try again.');
+                window.location.href = 'breeds.html';
+            }
+        }
+
+        // Function to handle form submission
+        async function handleSubmit(e) {
+            e.preventDefault();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            submitButton.disabled = true;
+            submitButton.textContent = 'Updating...';
+            
+            try {
+                const breedName = getUrlParam('breed');
+                const response = await fetch('http://localhost:3000/api/dogs');
+                const breeds = await response.json();
+                
+                // Create updated breed object
+                const updatedBreed = {
+                    breed: document.getElementById('breed').value,
+                    image_url: document.getElementById('image_url').value,
+                    basic_info: {
+                        lifespan: document.getElementById('lifespan').value,
+                        height: document.getElementById('height').value,
+                        weight: document.getElementById('weight').value
+                    },
+                    history: getArrayInputs('history-item'),
+                    behavior: getArrayInputs('behavior-item'),
+                    exercise_needs: getArrayInputs('exercise-item'),
+                    grooming: getArrayInputs('grooming-item'),
+                    nutrition: getArrayInputs('nutrition-item'),
+                    traits: {
+                        jogging_partner: parseInt(document.getElementById('jogging_partner').value),
+                        lap_dog: parseInt(document.getElementById('lap_dog').value),
+                        good_with_children: parseInt(document.getElementById('good_with_children').value),
+                        warm_weather: parseInt(document.getElementById('warm_weather').value),
+                        cold_weather: parseInt(document.getElementById('cold_weather').value),
+                        grooming_requirements: parseInt(document.getElementById('grooming_requirements').value),
+                        shedding: parseInt(document.getElementById('shedding').value),
+                        barking: parseInt(document.getElementById('barking').value),
+                        ease_of_training: parseInt(document.getElementById('ease_of_training').value)
+                    }
+                };
+
+                // Update breed in array
+                const index = breeds.findIndex(b => b.breed === decodeURIComponent(breedName));
+                if (index !== -1) {
+                    breeds[index] = updatedBreed;
+                    
+                    // Save updated data
+                    await fetch('http://localhost:3000/api/dogs', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(breeds)
+                    });
+
+                    showSuccessMessage('Breed updated successfully!');
+                    setTimeout(() => {
+                        window.location.href = 'breeds.html';
+                    }, 2000);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to update breed. Please try again.');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.textContent = 'Update Breed';
+            }
+        }
+
+        // Add form submit handler
+        document.getElementById('editBreedForm').addEventListener('submit', handleSubmit);
+
+        // Load breed data when page loads
+        window.addEventListener('load', loadBreedData);
+    </script>
+</body>
+</html> 
