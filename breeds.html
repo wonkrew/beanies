@@ -404,7 +404,9 @@
             <div class="nav-links">
                 <a href="/" class="nav-link">Add Breed</a>
                 <a href="/breeds.html" class="nav-link">View Breeds</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
             </div>
+            <div class="scroll-progress"></div>
         </div>
     </nav>
 
@@ -419,6 +421,8 @@
     </div>
     <a href="index.html" class="add-breed-btn">Add New Breed</a>
 
+    <script src="js/navbar.js"></script>
+    <script src="js/auth.js"></script>
     <script>
         async function loadBreeds() {
             try {
@@ -492,7 +496,5 @@
 
         window.addEventListener('load', loadBreeds);
     </script>
-    <script src="script.js"></script>
-    <script src="js/navbar.js"></script>
 </body>
 </html> 

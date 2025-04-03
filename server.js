@@ -14,6 +14,11 @@ app.use(express.json());
 // Serve static files from current directory
 app.use(express.static('./'));
 
+// Redirect root to login page
+app.get('/', (req, res) => {
+    res.redirect('/login.html');
+});
+
 // GET endpoint to read dogs
 app.get('/api/dogs', async (req, res) => {
     try {
