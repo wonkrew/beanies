@@ -207,6 +207,17 @@
 
     <script src="js/auth.js"></script>
     <script>
+        // Function to get API base URL
+        function getApiBaseUrl() {
+            // Check if we're running locally or in production
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                return 'http://localhost:3000';
+            } else {
+                // In production, use relative URLs (assumes frontend and backend deployed together)
+                return '';
+            }
+        }
+
         // Function to get URL parameters
         function getUrlParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
@@ -221,7 +232,8 @@
                     throw new Error('Breed name not provided');
                 }
 
-                const response = await fetch('http://localhost:3000/api/dogs');
+                const apiBaseUrl = getApiBaseUrl();
+                const response = await fetch(`${apiBaseUrl}/api/dogs`);
                 if (!response.ok) {
                     throw new Error('Failed to load breeds');
                 }

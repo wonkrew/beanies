@@ -1,3 +1,14 @@
+// Add this function at the top of the file
+function getApiBaseUrl() {
+    // Check if we're running locally or in production
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+        return 'http://localhost:3000';
+    } else {
+        // In production, use relative URLs (assumes frontend and backend deployed together)
+        return '';
+    }
+}
+
 // Function to add new input fields for arrays (history, behavior, etc.)
 function addInput(containerId, className) {
     const container = document.getElementById(containerId);
@@ -44,7 +55,8 @@ function getArrayInputs(className) {
 // Function to read the existing dogs data
 async function readDogsFile() {
     try {
-        const response = await fetch('http://localhost:3000/api/dogs');
+        const apiBaseUrl = getApiBaseUrl();
+        const response = await fetch(`${apiBaseUrl}/api/dogs`);
         if (!response.ok) {
             throw new Error('Failed to read dogs data');
         }
@@ -59,7 +71,8 @@ async function readDogsFile() {
 // Function to save the updated dogs data
 async function saveDogs(dogs) {
     try {
-        const response = await fetch('http://localhost:3000/api/dogs', {
+        const apiBaseUrl = getApiBaseUrl();
+        const response = await fetch(`${apiBaseUrl}/api/dogs`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -84,7 +97,8 @@ async function deleteDogBreed(breed) {
     }
     
     try {
-        const response = await fetch(`http://localhost:3000/api/dogs/${encodeURIComponent(breed)}`, {
+        const apiBaseUrl = getApiBaseUrl();
+        const response = await fetch(`${apiBaseUrl}/api/dogs/${encodeURIComponent(breed)}`, {
             method: 'DELETE'
         });
         
@@ -188,4 +202,26 @@ document.getElementById('dogBreedForm').addEventListener('submit', async functio
         submitButton.disabled = false;
         submitButton.textContent = 'Submit';
     }
-}); 
+});
+
+// This function loads dog breeds from the server
+async function loadBreeds() {
+    try {
+        const response = await fetch('http://localhost:3000/api/dogs');
+        // ... existing code ...
+    } catch (error) {
+        // ... existing code ...
+    }
+}
+
+// This function adds a new breed
+async function addBreed(newBreed) {
+    try {
+        const response = await fetch('http://localhost:3000/api/dogs', {
+            // ... existing code ...
+        });
+        // ... existing code ...
+    } catch (error) {
+        // ... existing code ...
+    }
+} 
