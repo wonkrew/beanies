@@ -4,127 +4,712 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Breed Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Enhanced Overall UI Styles */
+        :root {
+            --primary-color: #4299e1;
+            --primary-dark: #3182ce;
+            --primary-light: #ebf8ff;
+            --secondary-color: #48bb78;
+            --accent-color: #f6ad55;
+            --text-dark: #2d3748;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --background-light: #f7fafc;
+            --border-color: #edf2f7;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: all 0.3s ease;
         }
 
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             background-color: #f0f2f5;
             padding: 20px;
+            color: var(--text-medium);
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
             overflow: hidden;
+            position: relative;
         }
 
+        /* Enhanced Header */
         .breed-header {
             position: relative;
-            height: 300px;
+            height: 400px;
             background-size: cover;
             background-position: center;
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             display: flex;
             align-items: flex-end;
-            padding: 20px;
+            padding: 40px;
+            transition: var(--transition);
         }
 
-        .breed-header::before {
+        .breed-header::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 1;
+        }
+
+        .breed-header-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .breed-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
         }
 
         .breed-header h1 {
+            font-size: 3.5em;
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            line-height: 1.1;
+        }
+
+        .breed-group {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 30px;
+            font-size: 1em;
+            backdrop-filter: blur(4px);
+            margin-bottom: 5px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .breed-quick-stats {
+            display: flex;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .breed-stat {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1em;
+            opacity: 0.95;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 16px;
+            border-radius: 30px;
+            backdrop-filter: blur(4px);
+            transition: var(--transition);
+        }
+
+        .breed-stat:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .breed-stat i {
+            font-size: 1.3em;
+            color: var(--primary-light);
+        }
+
+        /* Enhanced Tabs */
+        .tab-container {
+            width: 100%;
+            background: var(--background-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tabs {
+            display: flex;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+            overflow-x: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+
+        .tab {
+            padding: 20px 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            color: var(--text-light);
+            white-space: nowrap;
+            position: relative;
+            letter-spacing: 0.3px;
+            font-size: 1.05em;
+        }
+
+        .tab i {
+            margin-right: 10px;
+            font-size: 1em;
+            transition: var(--transition);
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .tab:hover {
+            color: var(--primary-color);
+            background-color: var(--primary-light);
+        }
+
+        .tab:hover i {
+            transform: scale(1.1);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Enhanced Section Styles */
+        .section-intro, .history-intro, .temperament-intro {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-intro::before, .history-intro::before, .temperament-intro::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            z-index: 0;
+        }
+
+        .section-intro h2, .history-intro h2, .temperament-intro h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
             position: relative;
             z-index: 1;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        }
+
+        .section-intro p, .history-intro p, .temperament-intro p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Enhanced Card Styles */
+        .info-card, .care-card, .origin-card, .temperament-category, .trait-category {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .info-card:hover, .care-card:hover, .origin-card:hover, .temperament-category:hover, .trait-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .info-card h3, .care-card h3, .origin-card h3, .temperament-category h3, .trait-category h3 {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.4em;
+        }
+
+        .info-card h3 i, .care-card h3 i, .origin-card h3 i, .temperament-category h3 i, .trait-category h3 i {
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        /* Enhanced Progress Bars */
+        .progress-bar-container {
+            height: 12px;
+            background: var(--background-light);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            border-radius: 6px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0.2) 50%, 
+                rgba(255,255,255,0.1) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        /* Enhanced Buttons */
+        .back-btn, .logout-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .back-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .back-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .logout-btn {
+            background: #e53e3e;
+            color: white;
+        }
+
+        .logout-btn:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Enhanced Top Actions */
+        .top-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 20px 40px;
+            background: white;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 768px) {
+            .breed-header {
+                height: 300px;
+                padding: 30px 20px;
+            }
+
+            .breed-header h1 {
+                font-size: 2.5em;
+            }
+            
+            .breed-quick-stats {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .breed-stat {
+                font-size: 1em;
+                padding: 6px 12px;
+            }
+
+            .tab {
+                padding: 15px 20px;
+                font-size: 0.95em;
+            }
+
+            .tab-content {
+                padding: 30px 20px;
+            }
+
+            .section-intro, .history-intro, .temperament-intro {
+                padding: 30px 20px;
+            }
+
+            .section-intro h2, .history-intro h2, .temperament-intro h2 {
+                font-size: 1.8em;
+            }
+
+            .info-card, .care-card, .origin-card, .temperament-category, .trait-category {
+                padding: 20px;
+            }
+
+            .top-actions {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+                align-items: stretch;
+            }
+
+            .back-btn, .logout-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Enhanced Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Enhanced Grid Layouts */
+        .temperament-categories, .care-grid, .origin-grid, .trait-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Enhanced Timeline */
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: var(--border-color);
+            border-radius: 3px;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: var(--radius-md);
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            position: relative;
+            width: calc(50% - 40px);
+            margin-left: auto;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-color);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 24px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            box-shadow: 0 0 0 5px var(--primary-light);
+        }
+
+        .timeline-date {
+            font-size: 1em;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .timeline-text {
+            color: var(--text-dark);
+            line-height: 1.7;
+            font-size: 1.05em;
+        }
+
+        /* Enhanced Trait Tags */
+        .trait-tag, .value-tag {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 10px 18px;
+            border-radius: 30px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+            font-weight: 500;
+        }
+
+        .trait-tag:hover, .value-tag:hover {
+            background: #bee3f8;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .trait-tag i, .value-tag i {
+            font-size: 1em;
+            color: var(--primary-color);
+        }
+
+        /* Enhanced Rating Legend */
+        .rating-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(4px);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95em;
+            color: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.1);
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: var(--transition);
+        }
+
+        .legend-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .legend-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .rating-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            transition: var(--transition);
+        }
+
+        .rating-dot.filled {
+            background-color: white;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .rating-dot.empty {
+            background-color: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .breed-content {
-            padding: 30px;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-
-        .section h2 {
-            color: #333;
-            margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #eee;
+            padding: 0;
         }
 
         .basic-info {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 30px;
         }
 
         .info-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            text-align: center;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
         }
 
-        .info-item h3 {
-            color: #666;
+        .info-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #4299e1;
+        }
+
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: #ebf8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .info-icon i {
+            font-size: 1.5em;
+            color: #4299e1;
+        }
+
+        .info-content {
+            flex: 1;
+        }
+
+        .info-content h3 {
+            color: #718096;
             font-size: 0.9em;
             margin-bottom: 5px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .info-item p {
-            color: #333;
-            font-size: 1.1em;
-            font-weight: bold;
+        .info-content p {
+            color: #2d3748;
+            font-size: 1.2em;
+            font-weight: 600;
+            margin: 0;
         }
 
         .trait-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            gap: 20px;
         }
 
         .trait-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f7fafc;
+        }
+
+        .trait-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
         }
 
         .trait-name {
-            color: #666;
-            margin-bottom: 5px;
+            font-weight: 500;
+            color: #4a5568;
+            flex: 1;
         }
 
-        .trait-bar {
-            height: 8px;
-            background: #e9ecef;
-            border-radius: 4px;
-            overflow: hidden;
+        .trait-rating {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
-        .trait-value {
-            height: 100%;
-            background: #007bff;
-            border-radius: 4px;
+        .rating-dots {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rating-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .rating-dot.filled {
+            background-color: #4299e1;
+            box-shadow: 0 0 5px rgba(66, 153, 225, 0.5);
+        }
+
+        .rating-dot.empty {
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e0;
+        }
+
+        .rating-text {
+            font-size: 0.85em;
+            color: #718096;
+            width: 70px;
+            text-align: right;
         }
 
         .list-items {
@@ -132,45 +717,93 @@
         }
 
         .list-items li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             padding-left: 20px;
             position: relative;
+            color: #4a5568;
         }
 
         .list-items li::before {
             content: '•';
             position: absolute;
             left: 0;
-            color: #007bff;
+            color: #3182ce;
+            font-size: 1.2em;
         }
 
         .back-btn {
             display: inline-block;
             padding: 10px 20px;
-            background: #007bff;
+            background: #3182ce;
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             margin-bottom: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .back-btn:hover {
-            background: #0056b3;
+            background: #2b6cb0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
 
-        @media (max-width: 768px) {
-            .basic-info {
-                grid-template-columns: 1fr;
+        /* Card for behavior, exercise needs, etc. */
+        .info-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .info-card h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
                 gap: 10px;
             }
 
-            .breed-header {
-                height: 200px;
-            }
+        .info-card h3 i {
+            color: #4299e1;
+        }
 
-            .breed-header h1 {
-                font-size: 2em;
-            }
+        .info-card h4 {
+            margin: 15px 0 8px;
+            color: #4a5568;
+        }
+
+        .category-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .empty-list {
+            color: #a0aec0;
+            font-style: italic;
+        }
+
+        .value-tag {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #ebf8ff;
+            color: #3182ce;
+            border-radius: 20px;
+            font-size: 0.95em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            font-weight: 500;
         }
 
         .top-actions {
@@ -183,21 +816,1383 @@
         .logout-btn {
             display: inline-block;
             padding: 8px 16px;
-            background: #dc3545;
+            background: #e53e3e;
             color: white;
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
         
         .logout-btn:hover {
-            background: #c82333;
+            background: #c53030;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .breed-header {
+                height: 250px;
+            }
+
+            .breed-header h1 {
+                font-size: 2.2em;
+            }
+            
+            .breed-quick-stats {
+                flex-wrap: wrap;
+            }
+
+            .tab {
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+
+            .basic-info {
+                grid-template-columns: 1fr;
+            }
+
+            .info-item {
+                padding: 20px;
+            }
+
+            .info-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .info-icon i {
+                font-size: 1.2em;
+            }
+
+            .info-content h3 {
+                font-size: 0.8em;
+            }
+
+            .info-content p {
+                font-size: 1.1em;
+            }
+
+            .tab-content {
+                padding: 20px;
+            }
+        }
+
+        .rating-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9em;
+            color: #4a5568;
+        }
+
+        .legend-color {
+            width: 30px;
+            height: 10px;
+            border-radius: 5px;
+        }
+
+        .profile-overview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .profile-section {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .profile-columns {
+            display: flex;
+            gap: 20px;
+        }
+
+        .profile-column {
+            flex: 1;
+        }
+
+        .breed-about {
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .feature-list li i {
+            margin-right: 10px;
+        }
+
+        .activity-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        .activity-tags .value-tag {
+            background: #ebf8ff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+        }
+
+        .trait-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .trait-category {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+        }
+
+        .trait-category h3 {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+            color: #2d3748;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trait-category h3 i {
+            color: #4299e1;
+        }
+
+        .breed-intro {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+        }
+
+        .breed-intro-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .breed-intro h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2em;
+            border: none;
+        }
+
+        .breed-about {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .breed-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .breed-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            backdrop-filter: blur(4px);
+        }
+
+        .breed-tag i {
+            color: #f6e05e;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-item i {
+            color: #4299e1;
+        }
+
+        .behavior-card, .exercise-card, .activity-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        .behavior-card:hover, .exercise-card:hover, .activity-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .exercise-time {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            font-size: 1.1em;
+            color: #2d3748;
+        }
+
+        .exercise-time i {
+            color: #4299e1;
+        }
+
+        .activity-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .value-tag {
+            background: #ebf8ff;
+            color: #3182ce;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .value-tag:hover {
+            background: #bee3f8;
+            transform: translateY(-2px);
+        }
+
+        .value-tag i {
+            font-size: 0.8em;
+        }
+
+        @media (max-width: 768px) {
+            .breed-intro {
+                padding: 20px;
+            }
+
+            .breed-intro h2 {
+                font-size: 1.6em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .breed-tags {
+                flex-direction: column;
+            }
+
+            .breed-tag {
+                width: 100%;
+            }
+        }
+
+        .section-intro {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+        }
+
+        .section-intro h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2em;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-intro p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .rating-legend {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(4px);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .legend-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .trait-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .trait-category {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        .trait-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: #4299e1;
+        }
+
+        .trait-category h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .trait-category h3 i {
+            color: #4299e1;
+            font-size: 1.1em;
+        }
+
+        .trait-items {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .trait-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f7fafc;
+        }
+
+        .trait-item:last-child {
+            border-bottom: none;
+        }
+
+        .trait-name {
+            color: #4a5568;
+            font-weight: 500;
+            flex: 1;
+        }
+
+        .trait-rating {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .rating-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .rating-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .rating-dot.filled {
+            background-color: #4299e1;
+            box-shadow: 0 0 5px rgba(66, 153, 225, 0.5);
+        }
+
+        .rating-dot.empty {
+            background-color: #e2e8f0;
+            border: 1px solid #cbd5e0;
+        }
+
+        .rating-text {
+            font-size: 0.85em;
+            color: #718096;
+            width: 70px;
+            text-align: right;
+        }
+
+        @media (max-width: 768px) {
+            .section-intro {
+                padding: 20px;
+            }
+
+            .section-intro h2 {
+                font-size: 1.6em;
+            }
+
+            .trait-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .trait-category {
+                padding: 20px;
+            }
+
+            .trait-category h3 {
+                font-size: 1.1em;
+            }
+
+            .rating-legend {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .legend-item {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+
+        /* Care & Training Tab Styles */
+        .care-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .care-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+
+        .care-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .care-card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .care-card-header i {
+            font-size: 1.8em;
+        }
+
+        .care-card-header h3 {
+            font-size: 1.3em;
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .care-list {
+            list-style: none;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .care-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #f0f5fa;
+            position: relative;
+            padding-left: 25px;
+            color: #4a5568;
+        }
+
+        .care-list li:last-child {
+            border-bottom: none;
+        }
+
+        .care-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4299e1;
+            font-size: 1.5em;
+            top: 5px;
+        }
+
+        .care-empty {
+            padding: 20px;
+            color: #a0aec0;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .care-info-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 0 20px 20px;
+        }
+
+        .care-info-item {
+            flex: 1;
+            min-width: 150px;
+            background: #f7fafc;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .care-label {
+            font-size: 0.8em;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .care-value {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .care-section {
+            margin-bottom: 40px;
+        }
+
+        .care-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            color: #2d3748;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #edf2f7;
+        }
+
+        .care-section h2 i {
+            color: #4299e1;
+        }
+
+        /* Training styles */
+        .training-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .training-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border-color: #bee3f8;
+        }
+
+        .metric-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #ebf8ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .metric-icon i {
+            font-size: 1.4em;
+            color: #4299e1;
+        }
+
+        .metric-content {
+            flex: 1;
+        }
+
+        .metric-content h3 {
+            margin: 0 0 10px 0;
+            padding: 0;
+            border: none;
+            font-size: 1em;
+            color: #718096;
+        }
+
+        .metric-rating {
+            font-weight: 600;
+            color: #2d3748;
+            font-size: 1.2em;
+        }
+
+        .training-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .training-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+        }
+
+        .training-card h3 {
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #2d3748;
+        }
+
+        .training-card h3 i {
+            color: #4299e1;
+        }
+
+        .challenges-card h3 i {
+            color: #f6ad55;
+        }
+
+        .methods-card h3 i {
+            color: #48bb78;
+        }
+
+        .training-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .training-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f7fafc;
+            position: relative;
+            padding-left: 25px;
+            color: #4a5568;
+        }
+
+        .training-list li:last-child {
+            border-bottom: none;
+        }
+
+        .training-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4299e1;
+            font-size: 1.5em;
+            top: 7px;
+        }
+
+        .challenges-card .training-list li::before {
+            color: #f6ad55;
+        }
+
+        .methods-card .training-list li::before {
+            color: #48bb78;
+        }
+
+        /* Health section styles */
+        .health-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .health-header {
+            padding: 25px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .health-lifespan {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .health-lifespan i {
+            font-size: 2em;
+            color: #4299e1;
+        }
+
+        .lifespan-content h3 {
+            margin: 0;
+            padding: 0;
+            border: none;
+            font-size: 1em;
+            color: #718096;
+        }
+
+        .lifespan-content p {
+            margin: 5px 0 0 0;
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .health-issues {
+            padding: 25px;
+        }
+
+        .health-issues h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #2d3748;
+        }
+
+        .health-issues-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .health-issue-item {
+            background: #f7fafc;
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .health-issue-item:hover {
+            background: #edf2f7;
+            transform: translateY(-2px);
+        }
+
+        .health-issue-item i {
+            color: #e53e3e;
+            font-size: 1.1em;
+        }
+
+        .health-issue-item span {
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .care-grid, 
+            .training-metrics,
+            .training-details,
+            .health-issues-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .care-card-header {
+                padding: 15px;
+            }
+
+            .care-card-header i {
+                font-size: 1.5em;
+            }
+
+            .care-card-header h3 {
+                font-size: 1.1em;
+            }
+
+            .metric-card {
+                padding: 15px;
+            }
+
+            .metric-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .metric-icon i {
+                font-size: 1.2em;
+            }
+
+            .health-lifespan {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .health-lifespan i {
+                margin: 0 auto;
+            }
+        }
+
+        /* History & Origin Tab Styles */
+        .history-section {
+            margin-bottom: 40px;
+        }
+
+        .history-intro {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+        }
+
+        .history-intro h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2em;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .history-intro p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .origin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .origin-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #edf2f7;
+        }
+
+        .origin-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .origin-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .origin-header i {
+            font-size: 1.8em;
+        }
+
+        .origin-header h3 {
+            font-size: 1.3em;
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+
+        .origin-content {
+            padding: 25px;
+        }
+
+        .origin-item {
+            margin-bottom: 20px;
+        }
+
+        .origin-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .origin-label {
+            font-size: 0.9em;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .origin-value {
+            font-size: 1.1em;
+            color: #2d3748;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            position: relative;
+            width: calc(50% - 30px);
+            margin-left: auto;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .timeline-content::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: #4299e1;
+            border-radius: 50%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -40px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -40px;
+        }
+
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 28px;
+            width: 20px;
+            height: 2px;
+            background: #4299e1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -20px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -20px;
+        }
+
+        .timeline-date {
+            font-size: 0.9em;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        .timeline-text {
+            color: #2d3748;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .timeline-content::before {
+                left: -45px !important;
+            }
+            
+            .timeline-content::after {
+                left: -25px !important;
+            }
+            
+            .origin-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Temperament Tab Styles */
+        .temperament-intro {
+            background: linear-gradient(135deg, #4299e1 0%, #3182ce 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.2);
+        }
+
+        .temperament-intro h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 2em;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .temperament-intro p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .personality-traits-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        .personality-traits-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .personality-traits-card h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3em;
+        }
+
+        .personality-traits-card h3 i {
+            color: #4299e1;
+        }
+
+        .traits-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .trait-tag {
+            background: #ebf8ff;
+            color: #3182ce;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(66, 153, 225, 0.1);
+        }
+
+        .trait-tag:hover {
+            background: #bee3f8;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(66, 153, 225, 0.2);
+        }
+
+        .trait-tag i {
+            font-size: 0.9em;
+        }
+
+        .temperament-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .temperament-category {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #edf2f7;
+            transition: all 0.3s ease;
+        }
+
+        .temperament-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .temperament-category h3 {
+            color: #2d3748;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #edf2f7;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .temperament-category h3 i {
+            color: #4299e1;
+        }
+
+        .trait-progress {
+            margin-bottom: 20px;
+        }
+
+        .trait-progress:last-child {
+            margin-bottom: 0;
+        }
+
+        .trait-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .trait-name {
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .trait-value {
+            color: #718096;
+            font-size: 0.9em;
+        }
+
+        .progress-bar-container {
+            height: 10px;
+            background: #edf2f7;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4299e1 0%, #3182ce 100%);
+            border-radius: 5px;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.1) 0%, 
+                rgba(255,255,255,0.2) 50%, 
+                rgba(255,255,255,0.1) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .temperament-summary {
+            background: #f7fafc;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .temperament-summary h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2em;
+        }
+
+        .temperament-summary h3 i {
+            color: #4299e1;
+        }
+
+        .temperament-summary p {
+            color: #4a5568;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .temperament-tips {
+            background: #ebf8ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            border-left: 4px solid #4299e1;
+        }
+
+        .temperament-tips h4 {
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-size: 1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .temperament-tips h4 i {
+            color: #4299e1;
+        }
+
+        .temperament-tips ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .temperament-tips li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+            color: #4a5568;
+            font-size: 0.95em;
+        }
+
+        .temperament-tips li:last-child {
+            margin-bottom: 0;
+        }
+
+        .temperament-tips li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #4299e1;
+            font-size: 1.2em;
+        }
+
+        @media (max-width: 768px) {
+            .temperament-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .temperament-category {
+                padding: 20px;
+            }
+            
+            .trait-tag {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="top-actions">
-            <a href="/breeds.html" class="back-btn">Back to Breeds</a>
+            <a href="breeds.html" class="back-btn">← Back to Breeds</a>
             <a href="#" class="logout-btn" id="logoutBtn">Logout</a>
         </div>
         <div id="breedDetails">
@@ -221,7 +2216,47 @@
         // Function to get URL parameters
         function getUrlParam(param) {
             const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+            return urlParam = urlParams.get(param);
+        }
+
+        // Function to open tab
+        function openTab(evt, tabName) {
+            // Declare variables
+            let i, tabcontent, tablinks;
+          
+            // Get all elements with class="tab-content" and hide them
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+            }
+          
+            // Get all elements with class="tab" and remove the class "active"
+            tablinks = document.getElementsByClassName("tab");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+          
+            // Show the current tab, and add an "active" class to the button that opened the tab
+            document.getElementById(tabName).className += " active";
+            evt.currentTarget.className += " active";
+        }
+
+        // Function to set up tabs
+        function setupTabs() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', function(event) {
+                    let tabId = this.getAttribute('data-tab');
+                    if (tabId) {
+                        openTab(event, tabId);
+                    }
+                });
+            });
+        }
+
+        // Function to format trait rating as stars (1-5)
+        function getTraitRating(value) {
+            if (typeof value !== 'number' || isNaN(value)) return '0/5';
+            return `${value}/5`;
         }
 
         // Function to load and display breed details
@@ -239,7 +2274,39 @@
                 }
                 
                 const breeds = await response.json();
-                const breed = breeds.find(b => b.breed === breedName);
+                
+                // Try to find breed by breedName (new structure) or breed (old structure)
+                let breed = breeds.find(b => b.breedName === breedName);
+                
+                // If not found with breedName, try with old structure
+                if (!breed) {
+                    breed = breeds.find(b => b.breed === breedName);
+                    
+                    // If found with old structure, convert to new structure
+                    if (breed) {
+                        breed = {
+                            breedName: breed.breed,
+                            image_url: breed.image_url,
+                            breedAbout: breed.description || '',
+                            groupClassification: breed.group || 'Not specified',
+                            physicalCharacteristics: {
+                                size: {
+                                    height: breed.basic_info?.height || 'Not specified',
+                                    weight: breed.basic_info?.weight || 'Not specified'
+                                }
+                            },
+                            temperament: {
+                                personalityTraits: Array.isArray(breed.temperament) ? breed.temperament : []
+                            },
+                            traits: breed.traits || {},
+                            history: breed.history || [],
+                            behavior: breed.behavior || [],
+                            exercise_needs: breed.exercise_needs || [],
+                            grooming: breed.grooming || [],
+                            nutrition: breed.nutrition || []
+                        };
+                    }
+                }
                 
                 if (!breed) {
                     throw new Error('Breed not found');
@@ -247,91 +2314,881 @@
 
                 const breedDetails = document.getElementById('breedDetails');
                 breedDetails.innerHTML = `
-                    <a href="breeds.html" class="back-btn">← Back to Breeds</a>
-                    <div class="breed-header" style="background-image: url('${breed.image_url}')">
-                        <h1>${breed.breed}</h1>
-                    </div>
-                    <div class="breed-content">
-                        <div class="basic-info">
-                            <div class="info-item">
-                                <h3>Lifespan</h3>
-                                <p>${breed.basic_info.lifespan}</p>
+                    <div class="breed-header" style="background-image: url('${breed.image_url}');">
+                        <div class="breed-header-content">
+                            <div class="breed-title">
+                                <h1>${breed.breedName}</h1>
+                                <span class="breed-group">${breed.groupClassification || 'Not specified'}</span>
                             </div>
-                            <div class="info-item">
-                                <h3>Height</h3>
-                                <p>${breed.basic_info.height}</p>
-                            </div>
-                            <div class="info-item">
-                                <h3>Weight</h3>
-                                <p>${breed.basic_info.weight}</p>
+                            <div class="breed-quick-stats">
+                                <div class="breed-stat">
+                                    <i class="fas fa-ruler"></i>
+                                    <span>${breed.physicalCharacteristics?.size?.height || 'Not specified'}</span>
+                                </div>
+                                <div class="breed-stat">
+                                    <i class="fas fa-weight-hanging"></i>
+                                    <span>${breed.physicalCharacteristics?.size?.weight || 'Not specified'}</span>
+                                </div>
+                                <div class="breed-stat">
+                                    <i class="fas fa-hourglass-half"></i>
+                                    <span>${breed.healthConsiderations?.averageLifespan || 'Not specified'} lifespan</span>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="section">
-                            <h2>Traits</h2>
-                            <div class="trait-grid">
-                                ${Object.entries(breed.traits).map(([trait, value]) => `
-                                    <div class="trait-item">
-                                        <div class="trait-name">${trait.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
-                                        <div class="trait-bar">
-                                            <div class="trait-value" style="width: ${(value / 5) * 100}%"></div>
+                    </div>
+                    <div class="breed-content">
+                        <div class="tab-container">
+                            <div class="tabs">
+                                <div class="tab active" data-tab="overview">
+                                    <i class="fas fa-paw"></i> Overview
+                                </div>
+                                <div class="tab" data-tab="traits">
+                                    <i class="fas fa-chart-bar"></i> Traits & Rating
+                                </div>
+                                <div class="tab" data-tab="care">
+                                    <i class="fas fa-heart"></i> Care & Training
+                                </div>
+                                <div class="tab" data-tab="history">
+                                    <i class="fas fa-book"></i> History & Origin
+                                </div>
+                                <div class="tab" data-tab="temperament">
+                                    <i class="fas fa-smile"></i> Temperament
+                                </div>
+                            </div>
+                            
+                            <!-- Overview Tab -->
+                            <div id="overview" class="tab-content active">
+                                <div class="profile-overview">
+                                    <div class="profile-section breed-intro">
+                                        <div class="breed-intro-content">
+                                            <h2>About ${breed.breedName}</h2>
+                                            <p class="breed-about">${breed.breedAbout || 'No information available.'}</p>
+                                            <div class="breed-tags">
+                                                ${breed.temperament?.personalityTraits?.slice(0, 4).map(trait => 
+                                                    `<span class="breed-tag"><i class="fas fa-star"></i> ${trait}</span>`
+                                                ).join('') || ''}
+                                            </div>
                                         </div>
+                                    </div>
+                                    
+                                    <div class="profile-columns">
+                                        <div class="profile-column">
+                                            <div class="profile-section">
+                                                <h2><i class="fas fa-info-circle"></i> Basic Information</h2>
+                        <div class="basic-info">
+                            <div class="info-item">
+                                                        <div class="info-icon">
+                                                            <i class="fas fa-dog"></i>
+                                                        </div>
+                                                        <div class="info-content">
+                                                            <h3>Group Classification</h3>
+                                                            <p>${breed.groupClassification || 'Not specified'}</p>
+                                                        </div>
+                            </div>
+                            <div class="info-item">
+                                                        <div class="info-icon">
+                                                            <i class="fas fa-ruler-vertical"></i>
+                                                        </div>
+                                                        <div class="info-content">
+                                <h3>Height</h3>
+                                                            <p>${breed.physicalCharacteristics?.size?.height || 'Not specified'}</p>
+                                                        </div>
+                            </div>
+                            <div class="info-item">
+                                                        <div class="info-icon">
+                                                            <i class="fas fa-balance-scale"></i>
+                                                        </div>
+                                                        <div class="info-content">
+                                <h3>Weight</h3>
+                                                            <p>${breed.physicalCharacteristics?.size?.weight || 'Not specified'}</p>
+                            </div>
+                        </div>
+                                        </div>
+                                            </div>
+                                            
+                                            ${breed.physicalCharacteristics?.distinctiveFeatures?.length ? `
+                                            <div class="profile-section">
+                                                <h2><i class="fas fa-star"></i> Distinctive Features</h2>
+                                                <div class="features-grid">
+                                                    ${breed.physicalCharacteristics.distinctiveFeatures.map(feature => `
+                                                        <div class="feature-item">
+                                                            <i class="fas fa-check-circle"></i>
+                                                            <span>${feature}</span>
                                     </div>
                                 `).join('')}
                             </div>
+                                            </div>` : ''}
                         </div>
 
-                        <div class="section">
-                            <h2>History</h2>
-                            <ul class="list-items">
-                                ${breed.history.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
-                        </div>
-
-                        <div class="section">
-                            <h2>Behavior</h2>
+                                        <div class="profile-column">
+                                            <div class="profile-section">
+                                                <h2><i class="fas fa-paw"></i> Behavior & Exercise</h2>
+                                                ${breed.behavior && breed.behavior.length > 0 ? `
+                                                <div class="info-card behavior-card">
+                                                    <h3><i class="fas fa-heart"></i> Behavior</h3>
                             <ul class="list-items">
                                 ${breed.behavior.map(item => `<li>${item}</li>`).join('')}
                             </ul>
-                        </div>
+                                                </div>` : ''}
 
-                        <div class="section">
-                            <h2>Exercise Needs</h2>
+                                                ${breed.exercise_needs && breed.exercise_needs.length > 0 ? `
+                                                <div class="info-card exercise-card">
+                                                    <h3><i class="fas fa-running"></i> Exercise Needs</h3>
                             <ul class="list-items">
                                 ${breed.exercise_needs.map(item => `<li>${item}</li>`).join('')}
                             </ul>
+                                                </div>` : ''}
+                                                
+                                                ${breed.exerciseNeeds ? `
+                                                <div class="info-card activity-card">
+                                                    <h3><i class="fas fa-stopwatch"></i> Daily Exercise</h3>
+                                                    <div class="exercise-time">
+                                                        <i class="fas fa-clock"></i>
+                                                        <span>${breed.exerciseNeeds.dailyExerciseTime || 'Not specified'}</span>
                         </div>
 
-                        <div class="section">
-                            <h2>Grooming</h2>
-                            <ul class="list-items">
+                                                    ${breed.exerciseNeeds.recommendedActivities && breed.exerciseNeeds.recommendedActivities.length > 0 ? `
+                                                    <h4>Recommended Activities:</h4>
+                                                    <div class="activity-tags">
+                                                        ${breed.exerciseNeeds.recommendedActivities.map(activity => `
+                                                            <span class="value-tag"><i class="fas fa-play"></i> ${activity}</span>
+                                                        `).join('')}
+                                                    </div>` : ''}
+                                                </div>` : ''}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Traits Tab -->
+                            <div id="traits" class="tab-content">
+                                <div class="section-intro">
+                                    <h2><i class="fas fa-chart-bar"></i> Traits & Characteristics</h2>
+                                    <p>We've analyzed and rated ${breed.breedName}'s traits on a scale of 1-5, with 5 being the highest.</p>
+                                    <div class="rating-legend">
+                                        <div class="legend-item">
+                                            <div class="legend-dots">
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot empty"></span>
+                                                <span class="rating-dot empty"></span>
+                                                <span class="rating-dot empty"></span>
+                                                <span class="rating-dot empty"></span>
+                                            </div>
+                                            <span>Very Low</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-dots">
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot empty"></span>
+                                                <span class="rating-dot empty"></span>
+                                                <span class="rating-dot empty"></span>
+                                            </div>
+                                            <span>Low</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-dots">
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot empty"></span>
+                                                <span class="rating-dot empty"></span>
+                                            </div>
+                                            <span>Moderate</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-dots">
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot empty"></span>
+                                            </div>
+                                            <span>High</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="legend-dots">
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                                <span class="rating-dot filled"></span>
+                                            </div>
+                                            <span>Very High</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="trait-categories">
+                                    <div class="trait-category">
+                                        <h3><i class="fas fa-running"></i> Activity & Exercise</h3>
+                                        <div class="trait-items">
+                                            ${renderTraitByKey('energy_level', breed.traits?.energy_level)}
+                                            ${renderTraitByKey('exercise_needs', breed.traits?.exercise_needs)}
+                                            ${renderTraitByKey('playfulness', breed.traits?.playfulness)}
+                                            ${renderTraitByKey('jogging_partner', breed.traits?.jogging_partner)}
+                                        </div>
+                                    </div>
+
+                                    <div class="trait-category">
+                                        <h3><i class="fas fa-home"></i> Family Compatibility</h3>
+                                        <div class="trait-items">
+                                            ${renderTraitByKey('kid_friendly', breed.traits?.kid_friendly)}
+                                            ${renderTraitByKey('family_friendly', breed.traits?.family_friendly)}
+                                            ${renderTraitByKey('stranger_friendly', breed.traits?.stranger_friendly)}
+                                            ${renderTraitByKey('pet_friendly', breed.traits?.pet_friendly)}
+                                            ${renderTraitByKey('good_with_children', breed.traits?.good_with_children)}
+                                            ${renderTraitByKey('lap_dog', breed.traits?.lap_dog)}
+                                        </div>
+                                    </div>
+
+                                    <div class="trait-category">
+                                        <h3><i class="fas fa-snowflake"></i> Climate Adaptability</h3>
+                                        <div class="trait-items">
+                                            ${renderTraitByKey('cold_tolerance', breed.traits?.cold_tolerance)}
+                                            ${renderTraitByKey('heat_tolerance', breed.traits?.heat_tolerance)}
+                                            ${renderTraitByKey('apartment_friendly', breed.traits?.apartment_friendly)}
+                                            ${renderTraitByKey('warm_weather', breed.traits?.warm_weather)}
+                                            ${renderTraitByKey('cold_weather', breed.traits?.cold_weather)}
+                                        </div>
+                                    </div>
+
+                                    <div class="trait-category">
+                                        <h3><i class="fas fa-cut"></i> Grooming & Maintenance</h3>
+                                        <div class="trait-items">
+                                            ${renderTraitByKey('grooming_needs', breed.traits?.grooming_needs)}
+                                            ${renderTraitByKey('shedding_level', breed.traits?.shedding_level)}
+                                            ${renderTraitByKey('drooling_level', breed.traits?.drooling_level)}
+                                            ${renderTraitByKey('grooming_requirements', breed.traits?.grooming_requirements)}
+                                        </div>
+                                    </div>
+
+                                    <div class="trait-category">
+                                        <h3><i class="fas fa-volume-up"></i> Vocalization & Behavior</h3>
+                                        <div class="trait-items">
+                                            ${renderTraitByKey('barking_level', breed.traits?.barking_level)}
+                                            ${renderTraitByKey('protective_nature', breed.traits?.protective_nature)}
+                                            ${renderTraitByKey('social_needs', breed.traits?.social_needs)}
+                                            ${renderTraitByKey('barking', breed.traits?.barking)}
+                                        </div>
+                                    </div>
+
+                                    <div class="trait-category">
+                                        <h3><i class="fas fa-brain"></i> Training & Intelligence</h3>
+                                        <div class="trait-items">
+                                            ${renderTraitByKey('trainability', breed.traits?.trainability)}
+                                            ${renderTraitByKey('intelligence', breed.traits?.intelligence)}
+                                            ${renderTraitByKey('prey_drive', breed.traits?.prey_drive)}
+                                            ${renderTraitByKey('watchdog_ability', breed.traits?.watchdog_ability)}
+                                            ${renderTraitByKey('ease_of_training', breed.traits?.ease_of_training)}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Care & Training Tab -->
+                            <div id="care" class="tab-content">
+                                <div class="section-intro">
+                                    <h2><i class="fas fa-heart"></i> Care & Training Information</h2>
+                                    <p>Learn how to properly care for and train your ${breed.breedName} for a happy, healthy life together.</p>
+                                </div>
+                                
+                                <div class="care-grid">
+                                    <div class="care-card grooming-card">
+                                        <div class="care-card-header">
+                                            <i class="fas fa-cut"></i>
+                                            <h3>Grooming Needs</h3>
+                                        </div>
+                                        ${breed.grooming && breed.grooming.length > 0 ? `
+                                        <ul class="care-list">
                                 ${breed.grooming.map(item => `<li>${item}</li>`).join('')}
-                            </ul>
+                                        </ul>` : `
+                                        <p class="care-empty">No grooming information available.</p>`}
+                                        
+                                        ${breed.groomingRequirements ? `
+                                        <div class="care-info-row">
+                                            <div class="care-info-item">
+                                                <span class="care-label">Coat Maintenance</span>
+                                                <span class="care-value">${breed.groomingRequirements.coatMaintenance || 'Not specified'}</span>
+                                            </div>
+                                            <div class="care-info-item">
+                                                <span class="care-label">Shedding Level</span>
+                                                <span class="care-value">${breed.groomingRequirements.sheddingLevel || 'Not specified'}</span>
+                                            </div>
+                                            <div class="care-info-item">
+                                                <span class="care-label">Professional Grooming</span>
+                                                <span class="care-value">${breed.groomingRequirements.professionalGroomingRecommended ? 'Recommended' : 'Not necessary'}</span>
+                                            </div>
+                                        </div>` : ''}
                         </div>
 
-                        <div class="section">
-                            <h2>Nutrition</h2>
-                            <ul class="list-items">
+                                    <div class="care-card nutrition-card">
+                                        <div class="care-card-header">
+                                            <i class="fas fa-utensils"></i>
+                                            <h3>Nutrition Requirements</h3>
+                                        </div>
+                                        ${breed.nutrition && breed.nutrition.length > 0 ? `
+                                        <ul class="care-list">
                                 ${breed.nutrition.map(item => `<li>${item}</li>`).join('')}
+                                        </ul>` : `
+                                        <p class="care-empty">No nutrition information available.</p>`}
+                                    </div>
+                                </div>
+                                
+                                <div class="care-section">
+                                    <h2><i class="fas fa-brain"></i> Training & Intelligence</h2>
+                                    
+                                    <div class="training-container">
+                                        <div class="training-metrics">
+                                            <div class="metric-card">
+                                                <div class="metric-icon">
+                                                    <i class="fas fa-graduation-cap"></i>
+                                                </div>
+                                                <div class="metric-content">
+                                                    <h3>Trainability</h3>
+                                                    <div class="metric-rating">
+                                                        ${renderTrainingRating(breed.trainingAndIntelligence?.trainability || 'Good')}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="metric-card">
+                                                <div class="metric-icon">
+                                                    <i class="fas fa-lightbulb"></i>
+                                                </div>
+                                                <div class="metric-content">
+                                                    <h3>Intelligence</h3>
+                                                    <div class="metric-rating">
+                                                        ${renderTrainingRating(breed.trainingAndIntelligence?.intelligenceLevel || 'Moderate')}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="metric-card">
+                                                <div class="metric-icon">
+                                                    <i class="fas fa-clock"></i>
+                                                </div>
+                                                <div class="metric-content">
+                                                    <h3>Training Time</h3>
+                                                    <div class="metric-rating">
+                                                        ${renderTrainingTime(breed.traits?.ease_of_training || 3)}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        ${(breed.trainingAndIntelligence?.trainingChallenges?.length || breed.trainingAndIntelligence?.recommendedTrainingMethods?.length) ? `
+                                        <div class="training-details">
+                                            ${breed.trainingAndIntelligence?.trainingChallenges?.length ? `
+                                            <div class="training-card challenges-card">
+                                                <h3><i class="fas fa-exclamation-triangle"></i> Training Challenges</h3>
+                                                <ul class="training-list">
+                                                    ${breed.trainingAndIntelligence.trainingChallenges.map(challenge => `<li>${challenge}</li>`).join('')}
                             </ul>
+                                            </div>` : ''}
+                                            
+                                            ${breed.trainingAndIntelligence?.recommendedTrainingMethods?.length ? `
+                                            <div class="training-card methods-card">
+                                                <h3><i class="fas fa-check-circle"></i> Recommended Methods</h3>
+                                                <ul class="training-list">
+                                                    ${breed.trainingAndIntelligence.recommendedTrainingMethods.map(method => `<li>${method}</li>`).join('')}
+                                                </ul>
+                                            </div>` : ''}
+                                        </div>` : ''}
+                                    </div>
+                                </div>
+                                
+                                ${breed.healthConsiderations ? `
+                                <div class="care-section">
+                                    <h2><i class="fas fa-medkit"></i> Health Considerations</h2>
+                                    
+                                    <div class="health-card">
+                                        <div class="health-header">
+                                            <div class="health-lifespan">
+                                                <i class="fas fa-hourglass-half"></i>
+                                                <div class="lifespan-content">
+                                                    <h3>Average Lifespan</h3>
+                                                    <p>${breed.healthConsiderations.averageLifespan || 'Not specified'}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        ${breed.healthConsiderations.commonHealthIssues?.length ? `
+                                        <div class="health-issues">
+                                            <h3>Common Health Issues</h3>
+                                            <div class="health-issues-grid">
+                                                ${breed.healthConsiderations.commonHealthIssues.map(issue => `
+                                                <div class="health-issue-item">
+                                                    <i class="fas fa-plus-circle"></i>
+                                                    <span>${issue}</span>
+                                                </div>`).join('')}
+                                            </div>
+                                        </div>` : ''}
+                                    </div>
+                                </div>` : ''}
+                            </div>
+                            
+                            <!-- History Tab -->
+                            <div id="history" class="tab-content">
+                                <div class="history-intro">
+                                    <h2><i class="fas fa-book"></i> History & Origin</h2>
+                                    <p>Discover the fascinating journey of how the ${breed.breedName} breed came to be, from its ancient roots to its modern development.</p>
+                                </div>
+                                
+                                ${breed.originAndHistory ? `
+                                <div class="origin-grid">
+                                    <div class="origin-card">
+                                        <div class="origin-header">
+                                            <i class="fas fa-globe-americas"></i>
+                                            <h3>Origin Details</h3>
+                                        </div>
+                                        <div class="origin-content">
+                                            <div class="origin-item">
+                                                <div class="origin-label">Country of Origin</div>
+                                                <div class="origin-value">${breed.originAndHistory.countryOfOrigin || 'Not specified'}</div>
+                                            </div>
+                                            <div class="origin-item">
+                                                <div class="origin-label">Historical Development</div>
+                                                <div class="origin-value">${breed.originAndHistory.historicalDevelopment || 'Not specified'}</div>
+                                            </div>
+                                            <div class="origin-item">
+                                                <div class="origin-label">Bred For</div>
+                                                <div class="origin-value">${breed.originAndHistory.bredFor || 'Not specified'}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>` : ''}
+                                
+                                ${breed.history && breed.history.length > 0 ? `
+                                <div class="history-section">
+                                    <h2><i class="fas fa-history"></i> Historical Timeline</h2>
+                                    <div class="timeline">
+                                        ${breed.history.map((item, index) => `
+                                            <div class="timeline-item">
+                                                <div class="timeline-content">
+                                                    <div class="timeline-date">${item.year || `Event ${index + 1}`}</div>
+                                                    <div class="timeline-text">${item.description || item}</div>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>` : ''}
+                            </div>
+                            
+                            <!-- Temperament Tab -->
+                            <div id="temperament" class="tab-content">
+                                <div class="temperament-intro">
+                                    <h2><i class="fas fa-smile"></i> Temperament & Personality</h2>
+                                    <p>Discover the unique personality traits and temperament of the ${breed.breedName} breed, and learn how they interact with families, children, and other pets.</p>
+                                </div>
+                                
+                                ${breed.temperament?.personalityTraits?.length ? `
+                                <div class="personality-traits-card">
+                                    <h3><i class="fas fa-star"></i> Personality Traits</h3>
+                                    <div class="traits-container">
+                                        ${breed.temperament.personalityTraits.map(trait => 
+                                            `<span class="trait-tag"><i class="fas fa-check-circle"></i> ${trait}</span>`
+                                        ).join('')}
+                                    </div>
+                                </div>` : ''}
+                                
+                                <div class="temperament-categories">
+                                    ${breed.traits?.familyLife ? `
+                                    <div class="temperament-category">
+                                        <h3><i class="fas fa-home"></i> Family Compatibility</h3>
+                                        ${Object.entries(breed.traits.familyLife).map(([key, value]) => {
+                                            if (typeof value === 'number') {
+                                                const formattedName = key.replace(/([A-Z])/g, ' $1')
+                                                    .replace(/^./, str => str.toUpperCase())
+                                                    .replace(/With/g, 'with');
+                                                
+                                                return `
+                                                <div class="trait-progress">
+                                                    <div class="trait-label">
+                                                        <span class="trait-name">${formattedName}</span>
+                                                        <span class="trait-value">${value}/5</span>
+                                                    </div>
+                                                    <div class="progress-bar-container">
+                                                        <div class="progress-bar" style="width: ${value * 20}%"></div>
+                                                    </div>
+                                                </div>`;
+                                            }
+                                            return '';
+                                        }).join('')}
+                                    </div>` : ''}
+                                    
+                                    ${breed.traits?.social ? `
+                                    <div class="temperament-category">
+                                        <h3><i class="fas fa-users"></i> Social Behavior</h3>
+                                        ${Object.entries(breed.traits.social).map(([key, value]) => {
+                                            if (typeof value === 'number') {
+                                                const formattedName = key.replace(/([A-Z])/g, ' $1')
+                                                    .replace(/^./, str => str.toUpperCase());
+                                                
+                                                return `
+                                                <div class="trait-progress">
+                                                    <div class="trait-label">
+                                                        <span class="trait-name">${formattedName}</span>
+                                                        <span class="trait-value">${value}/5</span>
+                                                    </div>
+                                                    <div class="progress-bar-container">
+                                                        <div class="progress-bar" style="width: ${value * 20}%"></div>
+                                                    </div>
+                                                </div>`;
+                                            }
+                                            return '';
+                                        }).join('')}
+                                    </div>` : ''}
+                                    
+                                    ${breed.traits?.personality ? `
+                                    <div class="temperament-category">
+                                        <h3><i class="fas fa-brain"></i> Personality Characteristics</h3>
+                                        ${Object.entries(breed.traits.personality).map(([key, value]) => {
+                                            if (typeof value === 'number') {
+                                                const formattedName = key.replace(/([A-Z])/g, ' $1')
+                                                    .replace(/^./, str => str.toUpperCase());
+                                                
+                                                return `
+                                                <div class="trait-progress">
+                                                    <div class="trait-label">
+                                                        <span class="trait-name">${formattedName}</span>
+                                                        <span class="trait-value">${value}/5</span>
+                                                    </div>
+                                                    <div class="progress-bar-container">
+                                                        <div class="progress-bar" style="width: ${value * 20}%"></div>
+                                                    </div>
+                                                </div>`;
+                                            }
+                                            return '';
+                                        }).join('')}
+                                    </div>` : ''}
+                                </div>
+                                
+                                <div class="temperament-summary">
+                                    <h3><i class="fas fa-info-circle"></i> Temperament Summary</h3>
+                                    <p>The ${breed.breedName} is known for its ${breed.temperament?.personalityTraits?.slice(0, 3).join(', ') || 'unique personality'}. This breed ${breed.temperament?.goodWithFamilies ? 'makes an excellent family companion' : 'requires experienced owners'} and ${breed.temperament?.goodWithChildren ? 'is great with children' : 'may not be suitable for families with young children'}.</p>
+                                    
+                                    <div class="temperament-tips">
+                                        <h4><i class="fas fa-lightbulb"></i> Living with a ${breed.breedName}</h4>
+                                        <ul>
+                                            ${breed.temperament?.goodWithFamilies ? `<li>Excellent family companion that thrives on human interaction</li>` : ''}
+                                            ${breed.temperament?.goodWithChildren ? `<li>Patient and gentle with children, making it a great family dog</li>` : ''}
+                                            ${breed.temperament?.goodWithOtherPets ? `<li>Generally gets along well with other pets when properly socialized</li>` : ''}
+                                            <li>Requires ${breed.traits?.personality?.energyLevel > 3 ? 'plenty of' : 'moderate'} exercise to stay happy and healthy</li>
+                                            <li>${breed.traits?.personality?.trainabilityLevel > 3 ? 'Responds well to training' : 'May require patience during training'}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 `;
                 
+                // Set up the tabs
+                setupTabs();
+
+                // Show first tab by default
+                document.getElementById('overview').classList.add('active');
+                document.querySelector('.tab[data-tab="overview"]').classList.add('active');
+
             } catch (error) {
                 console.error('Error loading breed details:', error);
                 document.getElementById('breedDetails').innerHTML = `
-                    <a href="breeds.html" class="back-btn">← Back to Breeds</a>
-                    <div class="breed-content">
+                    <div class="section" style="padding: 30px;">
                         <h2>Error</h2>
-                        <p>Failed to load breed details. Please try again later.</p>
+                        <p>Failed to load breed details. ${error.message}</p>
+                        <a href="breeds.html" class="back-btn">← Back to Breeds</a>
                     </div>
                 `;
             }
         }
 
+        // Function to render information cards
+        function renderInfoCard(title, items, isSection = false) {
+            if (!items || items.length === 0) return '';
+            
+            return `
+                ${isSection ? `<div class="section">` : ''}
+                <div class="info-card">
+                    <h3>${title}</h3>
+                    <ul class="list-items">
+                        ${items.map(item => `<li>${item}</li>`).join('') || `<li class="empty-list">No information available</li>`}
+                    </ul>
+                </div>
+                ${isSection ? `</div>` : ''}
+            `;
+        }
+
+        // Function to render trait bars
+        function renderTraits(traits) {
+            if (!traits) return '<p>No trait information available.</p>';
+            
+            const traitSections = [];
+            
+            // Process direct traits first (they're the most important)
+            const directTraits = ['jogging_partner', 'lap_dog', 'good_with_children', 
+                'warm_weather', 'cold_weather', 'grooming_requirements', 
+                'shedding', 'barking', 'ease_of_training'];
+            
+            directTraits.forEach(key => {
+                if (traits[key] !== undefined && typeof traits[key] === 'number') {
+                    const formattedName = key.replace(/_/g, ' ')
+                        .replace(/\b\w/g, c => c.toUpperCase());
+                    
+                    traitSections.push(`
+                        <div class="trait-item">
+                            <div class="trait-name">${formattedName}</div>
+                            <div class="trait-bar">
+                                <div class="trait-value trait-value-${traits[key]}" style="width: ${traits[key] * 20}%;"></div>
+                            </div>
+                            <div class="trait-score">${getTraitRating(traits[key])}</div>
+                        </div>
+                    `);
+                }
+            });
+            
+            // Process all nested traits (new format)
+            const processTraitCategory = (category, traits) => {
+                if (!traits[category]) return;
+                
+                Object.entries(traits[category]).forEach(([key, value]) => {
+                    if (typeof value === 'number') {
+                        const formattedName = key.replace(/([A-Z])/g, ' $1')
+                            .replace(/^./, str => str.toUpperCase())
+                            .replace(/With/g, 'with');
+                        
+                        traitSections.push(`
+                            <div class="trait-item">
+                                <div class="trait-name">${formattedName}</div>
+                                <div class="trait-bar">
+                                    <div class="trait-value trait-value-${value}" style="width: ${value * 20}%;"></div>
+                                </div>
+                                <div class="trait-score">${getTraitRating(value)}</div>
+                            </div>
+                        `);
+                    }
+                });
+            };
+            
+            // Process each category
+            processTraitCategory('familyLife', traits);
+            processTraitCategory('physical', traits);
+            processTraitCategory('social', traits);
+            processTraitCategory('personality', traits);
+            
+            return traitSections.join('') || '<p>No trait information available.</p>';
+        }
+
+        // Function to render family traits
+        function renderFamilyTraits(familyLife) {
+            if (!familyLife) return '';
+            
+            let output = '';
+            
+            for (const [key, value] of Object.entries(familyLife)) {
+                if (typeof value === 'number') {
+                    const formattedName = key.replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, str => str.toUpperCase())
+                        .replace(/With/g, 'with');
+                    
+                    output += `
+                        <div class="trait-item">
+                            <div class="trait-name">${formattedName}</div>
+                            <div class="trait-bar">
+                                <div class="trait-value trait-value-${value}" style="width: ${value * 20}%;"></div>
+                            </div>
+                            <div class="trait-score">${getTraitRating(value)}</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            return output;
+        }
+
+        // Function to render social traits
+        function renderSocialTraits(social) {
+            if (!social) return '';
+            
+            let output = '';
+            
+            for (const [key, value] of Object.entries(social)) {
+                if (typeof value === 'number') {
+                    const formattedName = key.replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, str => str.toUpperCase());
+                    
+                    output += `
+                        <div class="trait-item">
+                            <div class="trait-name">${formattedName}</div>
+                            <div class="trait-bar">
+                                <div class="trait-value trait-value-${value}" style="width: ${value * 20}%;"></div>
+                            </div>
+                            <div class="trait-score">${getTraitRating(value)}</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            return output;
+        }
+
+        // Function to render personality traits
+        function renderPersonalityTraits(personality) {
+            if (!personality) return '';
+            
+            let output = '';
+            
+            for (const [key, value] of Object.entries(personality)) {
+                if (typeof value === 'number') {
+                    const formattedName = key.replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, str => str.toUpperCase());
+                    
+                    output += `
+                        <div class="trait-item">
+                            <div class="trait-name">${formattedName}</div>
+                            <div class="trait-bar">
+                                <div class="trait-value trait-value-${value}" style="width: ${value * 20}%;"></div>
+                            </div>
+                            <div class="trait-score">${getTraitRating(value)}</div>
+                        </div>
+                    `;
+                }
+            }
+            
+            return output;
+        }
+
+        // Function to render trait bars
+        function renderTraitByKey(key, trait) {
+            // If trait is undefined or null, create a default object
+            if (!trait) {
+                trait = {
+                    value: 0,
+                    label: key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+                };
+            }
+            
+            // If trait is a number, convert it to an object
+            if (typeof trait === 'number') {
+                trait = {
+                    value: trait,
+                    label: key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')
+                };
+            }
+            
+            // If trait is an object but doesn't have a value property, add it
+            if (trait && typeof trait === 'object' && trait.value === undefined) {
+                // Try to find a numeric value in the object
+                const numericValue = Object.values(trait).find(val => typeof val === 'number');
+                if (numericValue !== undefined) {
+                    trait.value = numericValue;
+                } else {
+                    trait.value = 0; // Default to 0 if no numeric value found
+                }
+            }
+            
+            // Ensure we have a label
+            if (!trait.label) {
+                trait.label = key.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            }
+            
+            // Ensure we have a value
+            if (trait.value === undefined || trait.value === null) {
+                trait.value = 0;
+            }
+            
+            let ratingHTML = '';
+            for (let i = 1; i <= 5; i++) {
+                let dotClass = i <= trait.value ? 'filled' : 'empty';
+                ratingHTML += `<span class="rating-dot ${dotClass}"></span>`;
+            }
+            
+            return `
+            <div class="trait-item">
+                <div class="trait-name">${trait.label}</div>
+                <div class="trait-rating">
+                    <div class="rating-dots">
+                        ${ratingHTML}
+                    </div>
+                    <div class="rating-text">${getRatingText(trait.value)}</div>
+                </div>
+            </div>`;
+        }
+
+        function getRatingText(value) {
+            switch(parseInt(value)) {
+                case 1: return 'Very Low';
+                case 2: return 'Low';
+                case 3: return 'Moderate';
+                case 4: return 'High';
+                case 5: return 'Very High';
+                default: return 'Not Rated';
+            }
+        }
+
+        // Function to render training rating
+        function renderTrainingRating(rating) {
+            // Convert string rating to standardized format
+            let ratingValue;
+            
+            if (typeof rating === 'number') {
+                ratingValue = rating;
+            } else if (typeof rating === 'string') {
+                const ratingMap = {
+                    'very low': 1,
+                    'low': 2,
+                    'moderate': 3,
+                    'good': 4,
+                    'high': 5,
+                    'very high': 5,
+                    'excellent': 5
+                };
+                
+                // Convert to lowercase and find the closest match
+                let normalizedRating = rating.toLowerCase();
+                ratingValue = ratingMap[normalizedRating] || 3; // Default to moderate if not found
+            } else {
+                ratingValue = 3; // Default to moderate
+            }
+            
+            // Get descriptive text based on numeric value
+            const ratingText = getRatingText(ratingValue);
+            
+            return `<div class="rating-value rating-${ratingValue}">${rating} <span class="rating-numeric">(${ratingValue}/5)</span></div>`;
+        }
+        
+        // Function to render training time estimate
+        function renderTrainingTime(value) {
+            let timeText;
+            
+            switch(parseInt(value)) {
+                case 1:
+                    timeText = 'Very Difficult (8+ weeks)';
+                    break;
+                case 2:
+                    timeText = 'Challenging (6-8 weeks)';
+                    break;
+                case 3:
+                    timeText = 'Moderate (4-6 weeks)';
+                    break;
+                case 4:
+                    timeText = 'Easy (2-4 weeks)';
+                    break;
+                case 5:
+                    timeText = 'Very Easy (1-2 weeks)';
+                    break;
+                default:
+                    timeText = 'Moderate (4-6 weeks)';
+            }
+            
+            return `<div class="training-time training-time-${value}">${timeText}</div>`;
+        }
+
         // Load breed details when page loads
-        window.addEventListener('load', loadBreedDetails);
+        window.addEventListener('load', () => {
+            loadBreedDetails();
+        });
     </script>
 </body>
 </html> 

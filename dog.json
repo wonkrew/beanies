@@ -1,540 +1,903 @@
 [
   {
-    "breed": "Boxer",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "8-10 years",
-      "height": "21-25 inches",
-      "weight": "50-85 pounds"
+    "breedName": "Golden Retriever",
+    "breedAbout": "Golden Retrievers are friendly, intelligent, and devoted dogs, known for their golden coats and gentle temperament.",
+    "groupClassification": "Sporting Group",
+    "image_url": "https://cdn.shopify.com/s/files/1/0746/1552/1501/files/Golden_Retriev.png?v=1744037310",
+    "originAndHistory": {
+      "countryOfOrigin": "Scotland",
+      "historicalDevelopment": "Developed in the mid-19th century by crossing the now-extinct Yellow Retriever with the Tweed Water Spaniel, among other breeds.",
+      "bredFor": "Retrieving game during hunting and shooting parties."
     },
-    "history": [
-      "The Boxer descends from two types of German Bullenbeisers, or bull-biters.",
-      "The Bullenbeisers were originally used to chase large game, such as boar, deer, and bear, through the forests, grabbing and hanging on until the hunter could arrive to dispatch it.",
-      "In the early 1800s, German hunters tried to improve their hunting dogs by crossing their Bullenbeisers with mastiff-type dogs and with Bulldogs.",
-      "By the late 1800s, these dogs were popular as butcher's dogs, controlling cattle in slaughter yards.",
-      "The slaughter yard dogs were called Boxl, which may have been the origin of the name, Boxer.",
-      "The Boxer was established by 1895.",
-      "The Boxer was one of the first breeds used as a police and military dog.",
-      "In 1904, the AKC recognized the Boxer.",
-      "The breed remained relatively obscure in America until the 1940s, when it began its slow but steady rise."
-    ],
-    "behavior": [
-      "Makes a loyal and protective companion.",
-      "Playful and gentle with children.",
-      "Fairly outgoing toward strangers.",
-      "Generally good with other dogs, but some can be aggressive toward strange dogs.",
-      "Generally good with other pets.",
-      "Learns quickly, but can be both sensitive and stubborn.",
-      "Does best with a firm owner who can combine reward-based training with good control and leadership."
-    ],
-    "exercise_needs": [
-      "Makes a calm and alert housedog, but can be restless unless it receives adequate exercise.",
-      "Requires daily exercise in the form of a long walk, jog or energetic games.",
-      "The Boxer's short muzzle makes it intolerant of heat.",
-      "The Boxer's short coat makes it intolerant of very cold weather.",
-      "Obedience training is essential not only for control, but for the mental exercise it provides.",
-      "Boxers compete in obedience and agility successfully."
-    ],
-    "grooming": [
-      "Coat is short and shiny.",
-      "It needs only occasional brushing, once every week or so, to remove dead hair.",
-      "Shedding is average."
-    ],
-    "nutrition": [
-      "Boxers tend to stay in good weight.",
-      "Adult dogs should be fed a balanced diet, with restricted calories if the dog starts to gain too much weight.",
-      "Puppies should be fed a large-breed growth food, which slows their growing rate but not final size. This may decrease the incidence or severity of hip dysplasia in adults."
-    ],
-    "traits": {
-      "jogging_partner": 4,
-      "lap_dog": 2,
-      "good_with_children": 5,
-      "warm_weather": 2,
-      "cold_weather": 2,
-      "grooming_requirements": 1,
-      "shedding": 3,
-      "barking": 3,
-      "ease_of_training": 3
-    }
-  },
-  {
-    "breed": "Golden Retriever",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "10-12 years",
-      "height": "21-24 inches",
-      "weight": "55-75 pounds"
+    "physicalCharacteristics": {
+      "size": {
+        "height": "21.5 to 24 inches",
+        "weight": "55 to 75 pounds"
+      },
+      "distinctiveFeatures": [
+        "Dog Physical Attributes\"\"\"Dog Physical Attributes\"\"\"  Dogs exhibit an incredible range of physical attributes, a testament to centuries of selective breeding and adaptation to diverse environments. Size, of course, is a major differentiator, spanning from the teacup Chihuahua, barely tipping the scales at a few pounds, to the imposing Irish Wolfhound, a gentle giant standing well over two feet tall and exceeding 100 pounds.  Coat types are equally varied. Short, smooth coats like that of a Beagle offer minimal protection against the elements, while thick, double-layered coats such as those seen on Huskies and Malamutes provide insulation against frigid temperatures. Fur can be wiry, curly, long, or even corded, as in the case of the Komondor. Colors and patterns are just as diverse, ranging from solid blacks, whites, and reds to brindle, merle, and spotted varieties.  Head shape and muzzle length also play a significant role in a dog's appearance and functionality. Brachycephalic breeds, like Bulldogs and Pugs, have shortened muzzles, which can unfortunately predispose them to breathing difficulties. Dolichocephalic breeds, such as Collies and Greyhounds, boast long, slender muzzles, advantageous for scenting and chasing prey.  Beyond these broad categories, subtle variations in bone structure, muscle mass, and even tail carriage contribute to the unique characteristics of each breed. These physical attributes are not merely aesthetic; they often reflect the dog's historical purpose, from herding livestock to retrieving waterfowl, and continue to influence their capabilities and health today."
+      ]
     },
-    "history": [
-      "Developed in Scotland in the mid-19th century as a retriever for hunting and shooting parties.",
-      "Lord Tweedmouth is credited with developing the breed by crossing a Yellow Retriever with the now-extinct Tweed Water Spaniel.",
-      "Irish Setter, Bloodhound, and more Tweed Water Spaniel were added later.",
-      "First exhibited in 1908 at the UK's Crystal Palace show as 'Flat Coats - Golden'.",
-      "Officially recognized by The Kennel Club in 1913.",
-      "Gained popularity in the US in the 1970s and has been one of America's most popular dog breeds for decades."
+    "temperament": {
+      "personalityTraits": ["Friendly", "Intelligent", "Devoted"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": ""
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "At least 1 hour",
+      "recommendedActivities": [
+        "Fetching games",
+        "Swimming",
+        "Long walks or hikes"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Occasional brushing",
+      "sheddingLevel": "5",
+      "professionalGroomingRecommended": "true",
+      "details": []
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Hip dysplasia",
+        "Elbow dysplasia",
+        "Cancer",
+        "Heart problems"
+      ],
+      "averageLifespan": "10 to 12 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "5",
+      "intelligenceLevel": "5",
+      "trainingChallenges": ["Can be distracted if not mentally stimulated"],
+      "recommendedTrainingMethods": [
+        "Positive reinforcement",
+        "Consistency and early socialization"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "2",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": ""
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "The Kennel Club (UK)"
+      ],
+      "officialStandardLink": ""
+    },
+    "additionalResources": [
+      {
+        "title": "Golden Retriever Club of America",
+        "url": "https://www.grca.org/"
+      }
     ],
-    "behavior": [
-      "Famously friendly, reliable, and trustworthy.",
-      "Excellent family dogs with a patient, kindly demeanor.",
-      "Highly social and gets along well with other dogs and pets.",
-      "Eager to please and highly trainable.",
-      "Intelligent and devoted companions.",
-      "Retains puppy-like playfulness well into adulthood.",
-      "Generally not effective as guard dogs due to their friendly nature."
-    ],
-    "exercise_needs": [
-      "Requires at least one hour of moderate exercise daily.",
-      "Enjoys swimming, retrieving games, and outdoor activities.",
-      "Mental stimulation through training and play is important.",
-      "Can be prone to weight gain without adequate exercise.",
-      "Excels in dog sports like obedience, agility, tracking, and field trials."
-    ],
-    "grooming": [
-      "Dense, water-repellent double coat with moderate shedding year-round and heavy seasonal shedding.",
-      "Requires brushing at least once or twice weekly, more during shedding seasons.",
-      "Ears should be checked regularly to prevent infections.",
-      "Occasional baths help keep coat clean and reduce shedding."
-    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/GOLDEN-RETRIEVER.jpg"]
+    },
+    "relatedBreeds": ["Labrador Retriever", "Flat-Coated Retriever"],
+    "behavior": ["Gentle and eager to please", "High social needs"],
+    "exercise_needs": ["Requires daily vigorous activity"],
+    "grooming": ["Weekly brushing, more during shedding seasons"],
     "nutrition": [
-      "Diet should be appropriate to the dog's age, size, and activity level.",
-      "Prone to obesity, so careful monitoring of food intake and weight is important.",
-      "High-quality dog food, whether commercially manufactured or home-prepared, is essential.",
-      "Clean, fresh water should be available at all times."
+      "High-quality dog food appropriate to age and activity level"
     ],
+    "history": ["First recognized as a breed by The Kennel Club in 1911."],
     "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 5,
+        "goodWithYoungChildren": 5,
+        "goodWithOtherDogs": 5
+      },
+      "social": {
+        "opennessToStrangers": 5,
+        "playfulnessLevel": 4,
+        "watchdogProtectiveNature": 2,
+        "adaptabilityLevel": 4
+      },
+      "physical": {
+        "coatGroomingFrequency": 4,
+        "coatLength": "Medium",
+        "droolingLevel": 1,
+        "coatTypeAndColor": {
+          "coatType": "Medium-length coat",
+          "coatColors": ["Light golden", "Golden", "Dark golden"]
+        },
+        "sheddingLevel": 5
+      },
+      "personality": {
+        "trainabilityLevel": 5,
+        "energyLevel": 4,
+        "barkingLevel": 3,
+        "mentalStimulationNeeds": 4
+      },
       "jogging_partner": 5,
-      "lap_dog": 3,
+      "lap_dog": 2,
       "good_with_children": 5,
       "warm_weather": 3,
       "cold_weather": 4,
       "grooming_requirements": 4,
       "shedding": 5,
-      "barking": 2,
+      "barking": 3,
       "ease_of_training": 5
     }
   },
   {
-    "breed": "German Shepherd",
+    "breedName": "German Shepherd",
+    "breedAbout": "German Shepherds are intelligent, loyal and versatile working dogs, known for their courage and protective nature.",
+    "groupClassification": "Herding Group",
     "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
+    "originAndHistory": {
+      "countryOfOrigin": "Germany",
+      "historicalDevelopment": "Developed in the late 19th century by Captain Max von Stephanitz for herding and as a working dog.",
+      "bredFor": "Herding sheep and working as service dogs."
     },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
+    "physicalCharacteristics": {
+      "size": {
+        "height": "22 to 26 inches",
+        "weight": "50 to 90 pounds"
+      },
+      "distinctiveFeatures": [
+        "Strong, muscular build with a noble, alert expression"
+      ]
+    },
+    "temperament": {
+      "personalityTraits": ["Loyal", "Intelligent", "Confident"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": "true"
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "At least 2 hours",
+      "recommendedActivities": [
+        "Running",
+        "Training exercises",
+        "Agility courses"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Regular brushing",
+      "sheddingLevel": "4",
+      "professionalGroomingRecommended": "false",
+      "details": []
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Hip dysplasia",
+        "Elbow dysplasia",
+        "Bloat",
+        "Degenerative myelopathy"
+      ],
+      "averageLifespan": "7 to 10 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "5",
+      "intelligenceLevel": "5",
+      "trainingChallenges": ["Can be stubborn if not properly socialized"],
+      "recommendedTrainingMethods": [
+        "Consistent training",
+        "Early socialization",
+        "Mental stimulation"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "2",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": "true"
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "Federation Cynologique Internationale (FCI)"
+      ],
+      "officialStandardLink": "https://www.akc.org/dog-breeds/german-shepherd-dog/"
+    },
+    "additionalResources": [
+      {
+        "title": "German Shepherd Dog Club of America",
+        "url": "https://gsdca.org/"
+      }
     ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/German-Shepherd-Dog.jpg"]
+    },
+    "relatedBreeds": ["Belgian Malinois", "Dutch Shepherd", "Shiloh Shepherd"],
+    "behavior": ["Protective and loyal", "Highly trainable", "Works well with clear direction"],
+    "exercise_needs": ["Requires daily vigorous activity", "Mental stimulation is essential"],
+    "grooming": ["Regular brushing to manage shedding", "Seasonal heavy shedding"],
     "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+      "High-quality dog food appropriate to age and activity level",
+      "Monitor weight to prevent obesity"
     ],
+    "history": ["First registered with the AKC in 1908", "Gained popularity after World War I"],
     "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 5,
+        "goodWithYoungChildren": 4,
+        "goodWithOtherDogs": 3
+      },
+      "social": {
+        "opennessToStrangers": 3,
+        "playfulnessLevel": 4,
+        "watchdogProtectiveNature": 5,
+        "adaptabilityLevel": 5
+      },
+      "physical": {
+        "coatGroomingFrequency": 3,
+        "coatLength": "Medium",
+        "droolingLevel": 1,
+        "coatTypeAndColor": {
+          "coatType": "Double coat",
+          "coatColors": ["Black and tan", "Sable", "Black", "White"]
+        },
+        "sheddingLevel": 4
+      },
+      "personality": {
+        "trainabilityLevel": 5,
+        "energyLevel": 5,
+        "barkingLevel": 3,
+        "mentalStimulationNeeds": 5
+      },
       "jogging_partner": 5,
       "lap_dog": 1,
       "good_with_children": 4,
       "warm_weather": 3,
       "cold_weather": 4,
       "grooming_requirements": 3,
-      "shedding": 5,
+      "shedding": 4,
       "barking": 3,
       "ease_of_training": 5
     }
   },
   {
-    "breed": "German Shepherd",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
+    "breedName": "Labrador Retriever",
+    "breedAbout": "Labrador Retrievers are friendly, outgoing, and high-spirited companions, famous for being America's most popular dog breed.",
+    "groupClassification": "Sporting Group",
+    "image_url": "https://cdn.shopify.com/s/files/1/0746/1552/1501/files/pngimg.com_-_labrador_retriever_PNG19.png?v=1744048587",
+    "originAndHistory": {
+      "countryOfOrigin": "Newfoundland, Canada",
+      "historicalDevelopment": "Developed in the 1800s as water dogs to help fishermen pull in nets and catch escaped fish.",
+      "bredFor": "Retrieving game and assisting fishermen."
     },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
+    "physicalCharacteristics": {
+      "size": {
+        "height": "21.5 to 24.5 inches",
+        "weight": "55 to 80 pounds"
+      },
+      "distinctiveFeatures": [
+        "Otter-like tail and water-resistant coat"
+      ]
+    },
+    "temperament": {
+      "personalityTraits": ["Friendly", "Active", "Outgoing"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": "true"
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "1 to 2 hours",
+      "recommendedActivities": [
+        "Swimming",
+        "Fetch games",
+        "Jogging"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Weekly brushing",
+      "sheddingLevel": "4",
+      "professionalGroomingRecommended": "false",
+      "details": []
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Hip and elbow dysplasia",
+        "Eye disorders",
+        "Obesity"
+      ],
+      "averageLifespan": "10 to 12 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "5",
+      "intelligenceLevel": "5",
+      "trainingChallenges": ["Can be easily distracted by scents"],
+      "recommendedTrainingMethods": [
+        "Positive reinforcement",
+        "Consistency",
+        "Food rewards"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "3",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": "true"
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "The Kennel Club (UK)"
+      ],
+      "officialStandardLink": "https://www.akc.org/dog-breeds/labrador-retriever/"
+    },
+    "additionalResources": [
+      {
+        "title": "Labrador Retriever Club of America",
+        "url": "https://thelabradorclub.com/"
+      }
     ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/LABRADOR-RETRIEVER.jpg"]
+    },
+    "relatedBreeds": ["Golden Retriever", "Chesapeake Bay Retriever", "Flat-Coated Retriever"],
+    "behavior": ["Eager to please", "Outgoing and sociable", "Loves water and retrieving"],
+    "exercise_needs": ["Requires daily vigorous activity", "Swimming is excellent exercise"],
+    "grooming": ["Weekly brushing", "Regular ear cleaning", "Seasonal shedding"],
     "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
+      "High-quality dog food appropriate to age and activity level",
+      "Monitor caloric intake as they are prone to obesity"
     ],
+    "history": ["Recognized by the AKC in 1917", "Named after the Labrador Sea region"],
     "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 5,
+        "goodWithYoungChildren": 5,
+        "goodWithOtherDogs": 5
+      },
+      "social": {
+        "opennessToStrangers": 5,
+        "playfulnessLevel": 5,
+        "watchdogProtectiveNature": 3,
+        "adaptabilityLevel": 5
+      },
+      "physical": {
+        "coatGroomingFrequency": 2,
+        "coatLength": "Short",
+        "droolingLevel": 2,
+        "coatTypeAndColor": {
+          "coatType": "Short, dense, water-resistant coat",
+          "coatColors": ["Yellow", "Black", "Chocolate"]
+        },
+        "sheddingLevel": 4
+      },
+      "personality": {
+        "trainabilityLevel": 5,
+        "energyLevel": 5,
+        "barkingLevel": 3,
+        "mentalStimulationNeeds": 4
+      },
       "jogging_partner": 5,
-      "lap_dog": 1,
-      "good_with_children": 4,
-      "warm_weather": 3,
-      "cold_weather": 4,
-      "grooming_requirements": 3,
-      "shedding": 5,
-      "barking": 3,
-      "ease_of_training": 5
-    }
-  },
-  {
-    "breed": "German Shepherd",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
-    },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
-    ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
-    "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
-    ],
-    "traits": {
-      "jogging_partner": 5,
-      "lap_dog": 1,
-      "good_with_children": 4,
-      "warm_weather": 3,
-      "cold_weather": 4,
-      "grooming_requirements": 3,
-      "shedding": 5,
-      "barking": 3,
-      "ease_of_training": 5
-    }
-  },
-  {
-    "breed": "German Shepherd",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
-    },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
-    ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
-    "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
-    ],
-    "traits": {
-      "jogging_partner": 5,
-      "lap_dog": 1,
-      "good_with_children": 4,
-      "warm_weather": 3,
-      "cold_weather": 4,
-      "grooming_requirements": 3,
-      "shedding": 5,
-      "barking": 3,
-      "ease_of_training": 5
-    }
-  },
-  {
-    "breed": "German Shepherd",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
-    },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
-    ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
-    "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
-    ],
-    "traits": {
-      "jogging_partner": 5,
-      "lap_dog": 1,
-      "good_with_children": 4,
-      "warm_weather": 3,
-      "cold_weather": 4,
-      "grooming_requirements": 3,
-      "shedding": 5,
-      "barking": 3,
-      "ease_of_training": 5
-    }
-  },
-  {
-    "breed": "German Shepherd",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
-    },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
-    ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
-    "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
-    ],
-    "traits": {
-      "jogging_partner": 5,
-      "lap_dog": 1,
-      "good_with_children": 4,
-      "warm_weather": 3,
-      "cold_weather": 4,
-      "grooming_requirements": 3,
-      "shedding": 5,
-      "barking": 3,
-      "ease_of_training": 5
-    }
-  },
-  {
-    "breed": "German Shepherd",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "9-13 years",
-      "height": "22-26 inches",
-      "weight": "50-90 pounds"
-    },
-    "history": [
-      "Developed in Germany in the late 19th century by Captain Max von Stephanitz.",
-      "Originally bred for herding sheep and protecting flocks.",
-      "First breed entry was registered in 1899.",
-      "Gained recognition for their service in World War I as messenger dogs, rescuers, and supply carriers.",
-      "Introduced to the United States in the early 1900s.",
-      "Widely used in police work, military service, search and rescue, and as service dogs."
-    ],
-    "behavior": [
-      "Intelligent, confident, and courageous.",
-      "Loyal and protective of their family.",
-      "Can be aloof with strangers but not usually aggressive without cause.",
-      "Strong work ethic and desire to have a purpose.",
-      "Forms strong bonds with family members.",
-      "Highly trainable with consistent leadership.",
-      "Requires early socialization to develop well-balanced temperament."
-    ],
-    "exercise_needs": [
-      "High energy breed requiring significant daily exercise.",
-      "Needs at least 1-2 hours of physical activity daily.",
-      "Mental stimulation through training and problem-solving is essential.",
-      "Excels in dog sports like obedience, tracking, herding, and agility.",
-      "Without adequate exercise and mental stimulation, may develop behavioral problems."
-    ],
-    "grooming": [
-      "Double coat with a dense outer coat and thick undercoat.",
-      "Sheds year-round with heavy seasonal shedding (blowing coat).",
-      "Requires brushing 3-4 times a week, daily during shedding seasons.",
-      "Bathing only when necessary to preserve natural oils in coat.",
-      "Regular nail trimming, ear cleaning, and dental care needed."
-    ],
-    "nutrition": [
-      "Diet should be high-quality and appropriate for age, size, and activity level.",
-      "Prone to bloat, so multiple smaller meals are recommended over one large meal.",
-      "Careful monitoring of weight is important to prevent obesity.",
-      "Puppies should be fed a large-breed puppy formula to support proper growth and development."
-    ],
-    "traits": {
-      "jogging_partner": 5,
-      "lap_dog": 1,
-      "good_with_children": 4,
-      "warm_weather": 3,
-      "cold_weather": 4,
-      "grooming_requirements": 3,
-      "shedding": 5,
-      "barking": 3,
-      "ease_of_training": 5
-    }
-  },
-  {
-    "breed": "Hillary England",
-    "image_url": "https://velonae.com/cdn/shop/files/doggis.png?v=1741609703&width=400",
-    "basic_info": {
-      "lifespan": "8-10 years",
-      "height": "21-25 inches",
-      "weight": "50-85 pounds"
-    },
-    "history": [],
-    "behavior": [],
-    "exercise_needs": [],
-    "grooming": [],
-    "nutrition": [],
-    "traits": {
-      "jogging_partner": 2,
-      "lap_dog": 4,
+      "lap_dog": 3,
       "good_with_children": 5,
       "warm_weather": 3,
-      "cold_weather": 1,
-      "grooming_requirements": 5,
+      "cold_weather": 4,
+      "grooming_requirements": 2,
+      "shedding": 4,
+      "barking": 3,
+      "ease_of_training": 5
+    }
+  },
+  {
+    "breedName": "Pug",
+    "breedAbout": "Pugs are charming, mischievous and loving companions, known for their wrinkled faces and curled tails.",
+    "groupClassification": "Toy Group",
+    "image_url": "https://cdn.shopify.com/s/files/1/0746/1552/1501/files/pug-dog-isolated-white-background-removebg-preview.png?v=1744049988",
+    "originAndHistory": {
+      "countryOfOrigin": "China",
+      "historicalDevelopment": "One of the oldest breeds, dating back to 400 BC. They were prized by Chinese emperors and later brought to Europe.",
+      "bredFor": "Companion dogs for royalty."
+    },
+    "physicalCharacteristics": {
+      "size": {
+        "height": "10 to 13 inches",
+        "weight": "14 to 18 pounds"
+      },
+      "distinctiveFeatures": [
+        "Wrinkled face, short muzzle, and curled tail"
+      ]
+    },
+    "temperament": {
+      "personalityTraits": ["Loving", "Mischievous", "Charming"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": "true"
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "30 minutes",
+      "recommendedActivities": [
+        "Short walks",
+        "Play sessions",
+        "Indoor games"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Weekly brushing",
+      "sheddingLevel": "3",
+      "professionalGroomingRecommended": "false",
+      "details": ["Regular cleaning of facial wrinkles"]
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Breathing problems",
+        "Eye issues",
+        "Obesity",
+        "Heat sensitivity"
+      ],
+      "averageLifespan": "12 to 15 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "3",
+      "intelligenceLevel": "4",
+      "trainingChallenges": ["Can be stubborn", "Short attention span"],
+      "recommendedTrainingMethods": [
+        "Positive reinforcement",
+        "Short training sessions",
+        "Consistency"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "5",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": "false"
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "The Kennel Club (UK)"
+      ],
+      "officialStandardLink": "https://www.akc.org/dog-breeds/pug/"
+    },
+    "additionalResources": [
+      {
+        "title": "Pug Dog Club of America",
+        "url": "https://www.pugdogclubofamerica.com/"
+      }
+    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/PUG.jpg"]
+    },
+    "relatedBreeds": ["French Bulldog", "Boston Terrier", "English Bulldog"],
+    "behavior": ["Affectionate and attached to owners", "Social and friendly", "Mischievous nature"],
+    "exercise_needs": ["Short daily walks", "Indoor play sessions", "Avoid excessive exercise in heat"],
+    "grooming": ["Weekly brushing", "Regular cleaning of facial wrinkles", "Keep skin folds dry"],
+    "nutrition": [
+      "Controlled portions to prevent obesity",
+      "High-quality dog food appropriate to age"
+    ],
+    "history": ["Brought to Europe from China in the 16th century", "Became favorites of European royalty"],
+    "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 5,
+        "goodWithYoungChildren": 4,
+        "goodWithOtherDogs": 4
+      },
+      "social": {
+        "opennessToStrangers": 4,
+        "playfulnessLevel": 4,
+        "watchdogProtectiveNature": 2,
+        "adaptabilityLevel": 5
+      },
+      "physical": {
+        "coatGroomingFrequency": 3,
+        "coatLength": "Short",
+        "droolingLevel": 2,
+        "coatTypeAndColor": {
+          "coatType": "Short, smooth coat",
+          "coatColors": ["Fawn", "Black", "Silver", "Apricot"]
+        },
+        "sheddingLevel": 3
+      },
+      "personality": {
+        "trainabilityLevel": 3,
+        "energyLevel": 3,
+        "barkingLevel": 2,
+        "mentalStimulationNeeds": 3
+      },
+      "jogging_partner": 1,
+      "lap_dog": 5,
+      "good_with_children": 4,
+      "warm_weather": 1,
+      "cold_weather": 2,
+      "grooming_requirements": 3,
       "shedding": 3,
-      "barking": 4,
-      "ease_of_training": 2
+      "barking": 2,
+      "ease_of_training": 3
+    }
+  },
+  {
+    "breedName": "Siberian Husky",
+    "breedAbout": "Siberian Huskies are athletic, intelligent, and friendly working dogs known for their striking appearance and endurance.",
+    "groupClassification": "Working Group",
+    "image_url": "https://cdn.shopify.com/s/files/1/0746/1552/1501/files/pngimg.com_-_husky_PNG6.png?v=1744050151",
+    "originAndHistory": {
+      "countryOfOrigin": "Siberia, Russia",
+      "historicalDevelopment": "Developed by the Chukchi people of northeastern Asia as endurance sled dogs for transportation in harsh Arctic conditions.",
+      "bredFor": "Pulling sleds over long distances in cold climates."
+    },
+    "physicalCharacteristics": {
+      "size": {
+        "height": "20 to 23.5 inches",
+        "weight": "35 to 60 pounds"
+      },
+      "distinctiveFeatures": [
+        "Erect triangular ears, distinctive markings, and thick double coat"
+      ]
+    },
+    "temperament": {
+      "personalityTraits": ["Outgoing", "Independent", "Alert"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": "false"
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "At least 2 hours",
+      "recommendedActivities": [
+        "Running",
+        "Hiking",
+        "Sledding",
+        "Agility training"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Weekly brushing, daily during shedding season",
+      "sheddingLevel": "5",
+      "professionalGroomingRecommended": "false",
+      "details": []
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Hip dysplasia",
+        "Eye disorders",
+        "Hypothyroidism"
+      ],
+      "averageLifespan": "12 to 14 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "3",
+      "intelligenceLevel": "4",
+      "trainingChallenges": ["Independent nature", "Strong prey drive", "Escape artists"],
+      "recommendedTrainingMethods": [
+        "Positive reinforcement",
+        "Consistency",
+        "Early training"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "2",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": "true"
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "The Kennel Club (UK)"
+      ],
+      "officialStandardLink": "https://www.akc.org/dog-breeds/siberian-husky/"
+    },
+    "additionalResources": [
+      {
+        "title": "Siberian Husky Club of America",
+        "url": "https://www.shca.org/"
+      }
+    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/SIBERIAN-HUSKY.jpg"]
+    },
+    "relatedBreeds": ["Alaskan Malamute", "Samoyed", "Alaskan Husky"],
+    "behavior": ["Independent thinker", "Pack mentality", "Mischievous and clever"],
+    "exercise_needs": ["High energy requiring vigorous daily exercise", "Thrives in cold weather activities"],
+    "grooming": ["Heavy seasonal shedding", "Weekly brushing", "Daily brushing during shedding season"],
+    "nutrition": [
+      "High-quality dog food appropriate to age and activity level",
+      "Adjust portions based on activity level and season"
+    ],
+    "history": ["Used in the 1925 serum run to Nome (Diphtheria epidemic)", "Recognized by the AKC in 1930"],
+    "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 4,
+        "goodWithYoungChildren": 4,
+        "goodWithOtherDogs": 5
+      },
+      "social": {
+        "opennessToStrangers": 4,
+        "playfulnessLevel": 5,
+        "watchdogProtectiveNature": 1,
+        "adaptabilityLevel": 3
+      },
+      "physical": {
+        "coatGroomingFrequency": 3,
+        "coatLength": "Medium",
+        "droolingLevel": 1,
+        "coatTypeAndColor": {
+          "coatType": "Thick double coat",
+          "coatColors": ["Black and white", "Gray and white", "Red and white", "Sable", "Pure white"]
+        },
+        "sheddingLevel": 5
+      },
+      "personality": {
+        "trainabilityLevel": 3,
+        "energyLevel": 5,
+        "barkingLevel": 2,
+        "mentalStimulationNeeds": 4
+      },
+      "jogging_partner": 5,
+      "lap_dog": 2,
+      "good_with_children": 4,
+      "warm_weather": 2,
+      "cold_weather": 5,
+      "grooming_requirements": 3,
+      "shedding": 5,
+      "barking": 2,
+      "ease_of_training": 3
+    }
+  },
+  {
+    "breedName": "French Bulldog",
+    "breedAbout": "French Bulldogs are adaptable, playful companions known for their bat-like ears and affectionate nature.",
+    "groupClassification": "Non-Sporting Group",
+    "image_url": "https://cdn.shopify.com/s/files/1/0746/1552/1501/files/French_Bulldog__Puppy_Images__Clip_Art__Cute_Dogs__-_French_Bulldog__HD_Png_Download_681x946__-_PngFind-removebg-preview.png?v=1744050595",
+    "originAndHistory": {
+      "countryOfOrigin": "France",
+      "historicalDevelopment": "Developed in the 1800s when lace workers from England moved to France, bringing smaller bulldogs with them.",
+      "bredFor": "Companion dogs and ratters."
+    },
+    "physicalCharacteristics": {
+      "size": {
+        "height": "11 to 13 inches",
+        "weight": "16 to 28 pounds"
+      },
+      "distinctiveFeatures": [
+        "Bat-shaped ears, compact body, and short muzzle"
+      ]
+    },
+    "temperament": {
+      "personalityTraits": ["Playful", "Adaptable", "Affectionate"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": "true"
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "30 minutes",
+      "recommendedActivities": [
+        "Short walks",
+        "Play sessions",
+        "Indoor activities"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Weekly brushing",
+      "sheddingLevel": "3",
+      "professionalGroomingRecommended": "false",
+      "details": ["Regular cleaning of facial wrinkles"]
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Breathing problems",
+        "Spinal disorders",
+        "Heat sensitivity",
+        "Eye problems"
+      ],
+      "averageLifespan": "10 to 12 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "4",
+      "intelligenceLevel": "4",
+      "trainingChallenges": ["Stubborn streak", "Short attention span"],
+      "recommendedTrainingMethods": [
+        "Positive reinforcement",
+        "Consistency",
+        "Short training sessions"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "5",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": "false"
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "The Kennel Club (UK)"
+      ],
+      "officialStandardLink": "https://www.akc.org/dog-breeds/french-bulldog/"
+    },
+    "additionalResources": [
+      {
+        "title": "French Bulldog Club of America",
+        "url": "https://frenchbulldogclub.org/"
+      }
+    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/FRENCH-BULLDOG.jpg"]
+    },
+    "relatedBreeds": ["Boston Terrier", "English Bulldog", "Pug"],
+    "behavior": ["Alert and playful", "Social and affectionate", "Adaptable to various living situations"],
+    "exercise_needs": ["Short daily walks", "Indoor play", "Avoid exercise in heat or humidity"],
+    "grooming": ["Weekly brushing", "Clean facial wrinkles regularly", "Keep ears clean"],
+    "nutrition": [
+      "High-quality dog food in controlled portions",
+      "Monitor weight to prevent obesity"
+    ],
+    "history": ["Recognized by the AKC in 1898", "Became popular with Parisian café society in the late 1800s"],
+    "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 5,
+        "goodWithYoungChildren": 4,
+        "goodWithOtherDogs": 3
+      },
+      "social": {
+        "opennessToStrangers": 4,
+        "playfulnessLevel": 4,
+        "watchdogProtectiveNature": 3,
+        "adaptabilityLevel": 5
+      },
+      "physical": {
+        "coatGroomingFrequency": 2,
+        "coatLength": "Short",
+        "droolingLevel": 2,
+        "coatTypeAndColor": {
+          "coatType": "Short, smooth coat",
+          "coatColors": ["Brindle", "Fawn", "White", "Brindle and white"]
+        },
+        "sheddingLevel": 3
+      },
+      "personality": {
+        "trainabilityLevel": 4,
+        "energyLevel": 3,
+        "barkingLevel": 2,
+        "mentalStimulationNeeds": 3
+      },
+      "jogging_partner": 1,
+      "lap_dog": 5,
+      "good_with_children": 4,
+      "warm_weather": 1,
+      "cold_weather": 2,
+      "grooming_requirements": 2,
+      "shedding": 3,
+      "barking": 2,
+      "ease_of_training": 4
+    }
+  },
+  {
+    "breedName": "Border Collie",
+    "breedAbout": "Border Collies are intelligent, energetic, and highly trainable working dogs renowned for their herding abilities and problem-solving skills.",
+    "groupClassification": "Herding Group",
+    "image_url": "https://cdn.shopify.com/s/files/1/0746/1552/1501/files/image-from-rawpixel-id-11956514-png.png?v=1744050952",
+    "originAndHistory": {
+      "countryOfOrigin": "Scottish-English border",
+      "historicalDevelopment": "Developed over centuries for herding livestock, particularly sheep, in the rugged border country between Scotland and England.",
+      "bredFor": "Herding sheep and controlling livestock with intense eye contact and calculated movements."
+    },
+    "physicalCharacteristics": {
+      "size": {
+        "height": "18 to 22 inches",
+        "weight": "30 to 55 pounds"
+      },
+      "distinctiveFeatures": [
+        "Athletic build, intense gaze, and semi-pricked ears"
+      ]
+    },
+    "temperament": {
+      "personalityTraits": ["Intelligent", "Energetic", "Loyal"],
+      "goodWithFamilies": "true",
+      "goodWithChildren": "true",
+      "goodWithOtherPets": "true"
+    },
+    "exerciseNeeds": {
+      "dailyExerciseTime": "At least 2 hours",
+      "recommendedActivities": [
+        "Herding trials",
+        "Agility courses",
+        "Frisbee",
+        "Advanced obedience"
+      ],
+      "details": []
+    },
+    "groomingRequirements": {
+      "coatMaintenance": "Weekly brushing",
+      "sheddingLevel": "4",
+      "professionalGroomingRecommended": "false",
+      "details": []
+    },
+    "healthConsiderations": {
+      "commonHealthIssues": [
+        "Hip dysplasia",
+        "Collie eye anomaly",
+        "Epilepsy",
+        "Neurological disorders"
+      ],
+      "averageLifespan": "12 to 15 years"
+    },
+    "trainingAndIntelligence": {
+      "trainability": "5",
+      "intelligenceLevel": "5",
+      "trainingChallenges": ["Can be too intelligent", "Needs constant mental stimulation"],
+      "recommendedTrainingMethods": [
+        "Positive reinforcement",
+        "Advanced training",
+        "Mental challenges"
+      ]
+    },
+    "livingEnvironment": {
+      "suitableForApartment": "2",
+      "suitableForHouseWithYard": "true",
+      "climateAdaptability": "true"
+    },
+    "recognitionAndStandards": {
+      "recognizedBy": [
+        "American Kennel Club",
+        "United Kennel Club",
+        "The Kennel Club (UK)"
+      ],
+      "officialStandardLink": "https://www.akc.org/dog-breeds/border-collie/"
+    },
+    "additionalResources": [
+      {
+        "title": "Border Collie Society of America",
+        "url": "https://www.bordercolliesociety.com/"
+      }
+    ],
+    "media": {
+      "imageGallery": ["https://cdn.akc.org/BORDER-COLLIE.jpg"]
+    },
+    "relatedBreeds": ["Australian Shepherd", "English Shepherd", "Shetland Sheepdog"],
+    "behavior": ["Intense focus and work ethic", "Responsive to owner's cues", "Needs mental and physical challenge"],
+    "exercise_needs": ["Requires extensive daily exercise", "Mental stimulation is essential", "Thrives with jobs to do"],
+    "grooming": ["Brush weekly, more during shedding season", "Check ears regularly"],
+    "nutrition": [
+      "High-quality dog food appropriate to age and activity level",
+      "Adjust portions based on activity level"
+    ],
+    "history": ["Recognized by the AKC in 1995", "Gained popularity for exceptional herding abilities"],
+    "traits": {
+      "familyLife": {
+        "affectionateWithFamily": 5,
+        "goodWithYoungChildren": 4,
+        "goodWithOtherDogs": 4
+      },
+      "social": {
+        "opennessToStrangers": 3,
+        "playfulnessLevel": 4,
+        "watchdogProtectiveNature": 3,
+        "adaptabilityLevel": 4
+      },
+      "physical": {
+        "coatGroomingFrequency": 3,
+        "coatLength": "Medium",
+        "droolingLevel": 1,
+        "coatTypeAndColor": {
+          "coatType": "Weather-resistant double coat",
+          "coatColors": ["Black and white", "Red and white", "Tricolor", "Merle"]
+        },
+        "sheddingLevel": 4
+      },
+      "personality": {
+        "trainabilityLevel": 5,
+        "energyLevel": 5,
+        "barkingLevel": 3,
+        "mentalStimulationNeeds": 5
+      },
+      "jogging_partner": 5,
+      "lap_dog": 2,
+      "good_with_children": 4,
+      "warm_weather": 3,
+      "cold_weather": 4,
+      "grooming_requirements": 3,
+      "shedding": 4,
+      "barking": 3,
+      "ease_of_training": 5
     }
   }
 ]

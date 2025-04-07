@@ -5,135 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Dog Breed</title>
     <link rel="stylesheet" href="styles/navbar.css">
+    <link rel="stylesheet" href="styles/form.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f0f2f5;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ddd;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .form-section {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #dee2e6;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #444;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        input[type="url"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .array-inputs {
-            margin-bottom: 10px;
-        }
-
-        .array-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-
-        .array-input-group input {
-            flex: 1;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .add-item-btn {
-            background-color: #28a745;
-            margin-bottom: 10px;
-            width: 100%;
-        }
-
-        .remove-btn {
-            background-color: #dc3545;
-            padding: 4px 12px;
-        }
-
-        .traits-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .trait-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .trait-item label {
-            flex: 1;
-            margin-bottom: 0;
-        }
-
-        .trait-item input {
-            width: 60px;
-        }
-
+        /* Additional styles specific to edit-breed.html */
         .back-btn {
             display: inline-block;
             padding: 10px 20px;
@@ -181,16 +55,6 @@
             margin-bottom: 15px;
             color: #333;
         }
-
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .traits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
     </style>
 </head>
 <body>
@@ -218,16 +82,31 @@
                 <div class="form-section">
                     <h3>Basic Information</h3>
                     <div class="form-group">
-                        <label for="breed">Breed Name*</label>
-                        <input type="text" id="breed" required>
+                        <label for="breedName">Breed Name*</label>
+                        <input type="text" id="breedName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="breedAbout">About Breed</label>
+                        <textarea id="breedAbout"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="groupClassification">Group Classification</label>
+                        <select id="groupClassification">
+                            <option value="">Select Group</option>
+                            <option value="Sporting Group">Sporting Group</option>
+                            <option value="Hound Group">Hound Group</option>
+                            <option value="Working Group">Working Group</option>
+                            <option value="Terrier Group">Terrier Group</option>
+                            <option value="Toy Group">Toy Group</option>
+                            <option value="Non-Sporting Group">Non-Sporting Group</option>
+                            <option value="Herding Group">Herding Group</option>
+                            <option value="Miscellaneous Class">Miscellaneous Class</option>
+                            <option value="Foundation Stock Service">Foundation Stock Service</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="image_url">Image URL*</label>
                         <input type="url" id="image_url" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lifespan">Lifespan*</label>
-                        <input type="text" id="lifespan" required>
                     </div>
                     <div class="form-group">
                         <label for="height">Height*</label>
@@ -239,80 +118,607 @@
                     </div>
                 </div>
 
-                <!-- History Section -->
+                <!-- Origin and History Section -->
                 <div class="form-section">
-                    <h3>History</h3>
-                    <div id="historyInputs" class="array-inputs"></div>
-                    <button type="button" class="add-item-btn" onclick="addInput('historyInputs', 'history-item')">Add History Item</button>
+                    <h3>Origin & History</h3>
+                    <div class="form-group">
+                        <label for="countryOfOrigin">Country of Origin:</label>
+                        <input type="text" id="countryOfOrigin">
+                    </div>
+                    <div class="form-group">
+                        <label for="historicalDevelopment">Historical Development:</label>
+                        <textarea id="historicalDevelopment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bredFor">Bred For:</label>
+                        <input type="text" id="bredFor">
+                    </div>
+                </div>
+
+                <!-- Physical Characteristics Section -->
+                <div class="form-section">
+                    <h3>Physical Characteristics</h3>
+                    <div class="form-group">
+                        <label>Distinctive Features:</label>
+                        <div id="distinctiveFeaturesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="distinctive-feature-item" placeholder="Enter distinctive feature">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('distinctiveFeaturesInputs', 'distinctive-feature-item')">Add Feature</button>
+                    </div>
+                </div>
+
+                <!-- Temperament Section -->
+                <div class="form-section">
+                    <h3>Temperament</h3>
+                    <div class="form-group">
+                        <label>Personality Traits:</label>
+                        <div id="personalityTraitsInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="personality-trait-item" placeholder="Enter personality trait">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('personalityTraitsInputs', 'personality-trait-item')">Add Trait</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodWithFamilies">Good With Families:</label>
+                        <select id="goodWithFamilies">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodWithChildren">Good With Children:</label>
+                        <select id="goodWithChildren">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodWithOtherPets">Good With Other Pets:</label>
+                        <input type="text" id="goodWithOtherPets">
+                    </div>
+                </div>
+
+                <!-- Exercise Needs Section -->
+                <div class="form-section">
+                    <h3>Exercise Needs</h3>
+                    <div class="form-group">
+                        <label for="dailyExerciseTime">Daily Exercise Time:</label>
+                        <input type="text" id="dailyExerciseTime">
+                    </div>
+                    <div class="form-group">
+                        <label>Recommended Activities:</label>
+                        <div id="recommendedActivitiesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="recommended-activity-item" placeholder="Enter activity">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('recommendedActivitiesInputs', 'recommended-activity-item')">Add Activity</button>
+                    </div>
+                    
+                    <h4>Exercise Needs Details:</h4>
+                    <div id="exerciseNeedsInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="exercise-needs-item" placeholder="Enter exercise need detail">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('exerciseNeedsInputs', 'exercise-needs-item')">Add Exercise Detail</button>
+                </div>
+
+                <!-- Grooming Requirements Section -->
+                <div class="form-section">
+                    <h3>Grooming Requirements</h3>
+                    <div class="form-group">
+                        <label for="coatMaintenance">Coat Maintenance:</label>
+                        <select id="coatMaintenance">
+                            <option value="">Select Maintenance Level</option>
+                            <option value="Minimal brushing">Minimal brushing</option>
+                            <option value="Occasional brushing">Occasional brushing</option>
+                            <option value="Weekly brushing">Weekly brushing</option>
+                            <option value="Frequent brushing">Frequent brushing</option>
+                            <option value="Daily brushing">Daily brushing</option>
+                            <option value="Professional grooming recommended">Professional grooming recommended</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sheddingLevel">Shedding Level:</label>
+                        <select id="sheddingLevel">
+                            <option value="">Select Level</option>
+                            <option value="1">Minimal</option>
+                            <option value="2">Low</option>
+                            <option value="3">Average</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="professionalGroomingRecommended">Professional Grooming Recommended:</label>
+                        <select id="professionalGroomingRecommended">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    
+                    <h4>Grooming Details:</h4>
+                    <div id="groomingDetailsInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="grooming-detail-item" placeholder="Enter grooming detail">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('groomingDetailsInputs', 'grooming-detail-item')">Add Grooming Detail</button>
+                </div>
+
+                <!-- Health Considerations Section -->
+                <div class="form-section">
+                    <h3>Health Considerations</h3>
+                    <div class="form-group">
+                        <label>Common Health Issues:</label>
+                        <div id="commonHealthIssuesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="health-issue-item" placeholder="Enter health issue">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('commonHealthIssuesInputs', 'health-issue-item')">Add Health Issue</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="averageLifespan">Average Lifespan:</label>
+                        <input type="text" id="averageLifespan">
+                    </div>
+                </div>
+
+                <!-- Training and Intelligence Section -->
+                <div class="form-section">
+                    <h3>Training & Intelligence</h3>
+                    <div class="form-group">
+                        <label for="trainability">Trainability:</label>
+                        <select id="trainability">
+                            <option value="">Select Level</option>
+                            <option value="1">Difficult</option>
+                            <option value="2">Moderate</option>
+                            <option value="3">Good</option>
+                            <option value="4">Very Good</option>
+                            <option value="5">Excellent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="intelligenceLevel">Intelligence Level:</label>
+                        <select id="intelligenceLevel">
+                            <option value="">Select Level</option>
+                            <option value="1">Low</option>
+                            <option value="2">Average</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Training Challenges:</label>
+                        <div id="trainingChallengesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="training-challenge-item" placeholder="Enter training challenge">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('trainingChallengesInputs', 'training-challenge-item')">Add Challenge</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Recommended Training Methods:</label>
+                        <div id="recommendedTrainingMethodsInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="training-method-item" placeholder="Enter training method">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('recommendedTrainingMethodsInputs', 'training-method-item')">Add Method</button>
+                    </div>
+                </div>
+
+                <!-- Living Environment Section -->
+                <div class="form-section">
+                    <h3>Living Environment</h3>
+                    <div class="form-group">
+                        <label for="suitableForApartment">Suitable For Apartment:</label>
+                        <select id="suitableForApartment">
+                            <option value="">Select Suitability</option>
+                            <option value="1">Not Recommended</option>
+                            <option value="2">Somewhat Suitable</option>
+                            <option value="3">Suitable with Sufficient Exercise</option>
+                            <option value="4">Very Suitable</option>
+                            <option value="5">Excellent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suitableForHouseWithYard">Suitable For House With Yard:</label>
+                        <select id="suitableForHouseWithYard">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="climateAdaptability">Climate Adaptability:</label>
+                        <select id="climateAdaptability">
+                            <option value="">Select Adaptability</option>
+                            <option value="1">Poor - Sensitive to temperature extremes</option>
+                            <option value="2">Moderate - Can handle some temperature variation</option>
+                            <option value="3">Good - Adaptable to different climates</option>
+                            <option value="5">Excellent - Thrives in various climates</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Recognition and Standards Section -->
+                <div class="form-section">
+                    <h3>Recognition & Standards</h3>
+                    <div class="form-group">
+                        <label>Recognized By:</label>
+                        <div id="recognizedByInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="recognized-by-item" placeholder="Enter organization (e.g., AKC, FCI)">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('recognizedByInputs', 'recognized-by-item')">Add Organization</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="officialStandardLink">AKC Standard Link:</label>
+                        <input type="text" id="officialStandardLink" placeholder="https://www.akc.org/dog-breeds/...">
+                    </div>
+                </div>
+
+                <!-- Additional Resources Section -->
+                <div class="form-section">
+                    <h3>Additional Resources</h3>
+                    <div id="additionalResourcesInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="resource-title-item" placeholder="Resource Title">
+                            <input type="text" class="resource-url-item" placeholder="Resource URL">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addResourceInput()">Add Resource</button>
+                </div>
+
+                <!-- Related Breeds Section -->
+                <div class="form-section">
+                    <h3>Related Breeds</h3>
+                    <div id="relatedBreedsInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="related-breed-item" placeholder="Enter related breed">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('relatedBreedsInputs', 'related-breed-item')">Add Related Breed</button>
                 </div>
 
                 <!-- Behavior Section -->
                 <div class="form-section">
                     <h3>Behavior</h3>
-                    <div id="behaviorInputs" class="array-inputs"></div>
-                    <button type="button" class="add-item-btn" onclick="addInput('behaviorInputs', 'behavior-item')">Add Behavior Item</button>
-                </div>
-
-                <!-- Exercise Section -->
-                <div class="form-section">
-                    <h3>Exercise Needs</h3>
-                    <div id="exerciseInputs" class="array-inputs"></div>
-                    <button type="button" class="add-item-btn" onclick="addInput('exerciseInputs', 'exercise-item')">Add Exercise Item</button>
-                </div>
-
-                <!-- Grooming Section -->
-                <div class="form-section">
-                    <h3>Grooming</h3>
-                    <div id="groomingInputs" class="array-inputs"></div>
-                    <button type="button" class="add-item-btn" onclick="addInput('groomingInputs', 'grooming-item')">Add Grooming Item</button>
+                    <div id="behaviorInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="behavior-item" placeholder="Enter behavior trait">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('behaviorInputs', 'behavior-item')">Add Behavior Trait</button>
                 </div>
 
                 <!-- Nutrition Section -->
                 <div class="form-section">
                     <h3>Nutrition</h3>
-                    <div id="nutritionInputs" class="array-inputs"></div>
-                    <button type="button" class="add-item-btn" onclick="addInput('nutritionInputs', 'nutrition-item')">Add Nutrition Item</button>
+                    <div id="nutritionInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="nutrition-item" placeholder="Enter nutrition information">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('nutritionInputs', 'nutrition-item')">Add Nutrition Info</button>
+                </div>
+
+                <!-- History Section -->
+                <div class="form-section">
+                    <h3>History</h3>
+                    <div id="historyInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="history-item" placeholder="Enter historical fact">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('historyInputs', 'history-item')">Add History Fact</button>
                 </div>
 
                 <!-- Traits Section -->
                 <div class="form-section full-width">
-                    <h3>Traits (Rate 1-5)</h3>
+                    <h3>Traits</h3>
+                    
+                    <div class="traits-container">
+                        <!-- First Column -->
+                        <div class="traits-column">
+                            <h4>Family Life</h4>
+                            <div class="form-group">
+                                <label for="affectionateWithFamily">Affectionate With Family:</label>
+                                <select id="affectionateWithFamily" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Poor</option>
+                                    <option value="2">2 - Fair</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - Very Good</option>
+                                    <option value="5">5 - Excellent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="goodWithYoungChildren">Good With Young Children:</label>
+                                <select id="goodWithYoungChildren" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Poor</option>
+                                    <option value="2">2 - Fair</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - Very Good</option>
+                                    <option value="5">5 - Excellent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="goodWithOtherDogs">Good With Other Dogs:</label>
+                                <select id="goodWithOtherDogs" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Poor</option>
+                                    <option value="2">2 - Fair</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - Very Good</option>
+                                    <option value="5">5 - Excellent</option>
+                                </select>
+                            </div>
+                            
+                            <h4>Social</h4>
+                            <div class="form-group">
+                                <label for="opennessToStrangers">Openness To Strangers:</label>
+                                <select id="opennessToStrangers" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Reserved</option>
+                                    <option value="2">2 - Cautious</option>
+                                    <option value="3">3 - Moderate</option>
+                                    <option value="4">4 - Friendly</option>
+                                    <option value="5">5 - Very Friendly</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="playfulnessLevel">Playfulness Level:</label>
+                                <select id="playfulnessLevel" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Low</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="watchdogProtectiveNature">Watchdog/Protective Nature:</label>
+                                <select id="watchdogProtectiveNature" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Low</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="adaptabilityLevel">Adaptability Level:</label>
+                                <select id="adaptabilityLevel" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Low</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - Very Good</option>
+                                    <option value="5">5 - Excellent</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Column -->
+                        <div class="traits-column">
+                            <h4>Physical</h4>
+                            <div class="form-group">
+                                <label for="coatGroomingFrequency">Coat Grooming Frequency:</label>
+                                <select id="coatGroomingFrequency" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Very Low</option>
+                                    <option value="2">2 - Low</option>
+                                    <option value="3">3 - Moderate</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="coatLength">Coat Length:</label>
+                                <select id="coatLength" required>
+                                    <option value="">Select Length</option>
+                                    <option value="Short">Short</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Long">Long</option>
+                                    <option value="Variable">Variable</option>
+                                    <option value="Hairless">Hairless</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="droolingLevel">Drooling Level:</label>
+                                <select id="droolingLevel" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Minimal</option>
+                                    <option value="2">2 - Low</option>
+                                    <option value="3">3 - Moderate</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="coatType">Coat Type:</label>
+                                <select id="coatType" required>
+                                    <option value="">Select Coat Type</option>
+                                    <option value="Short, smooth coat">Short, smooth coat</option>
+                                    <option value="Medium-length coat">Medium-length coat</option>
+                                    <option value="Long coat">Long coat</option>
+                                    <option value="Double coat">Double coat</option>
+                                    <option value="Wire-haired coat">Wire-haired coat</option>
+                                    <option value="Curly coat">Curly coat</option>
+                                    <option value="Silky coat">Silky coat</option>
+                                    <option value="Corded coat">Corded coat</option>
+                                    <option value="Hairless">Hairless</option>
+                                </select>
+                            </div>
+                            
+                            
+                            <h4>Personality</h4>
+                            <div class="form-group">
+                                <label for="trainabilityLevel">Trainability Level:</label>
+                                <select id="trainabilityLevel" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Challenging</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - Very Good</option>
+                                    <option value="5">5 - Excellent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="energyLevel">Energy Level:</label>
+                                <select id="energyLevel" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Low</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="barkingLevel">Barking Level:</label>
+                                <select id="barkingLevel" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Low</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mentalStimulationNeeds">Mental Stimulation Needs:</label>
+                                <select id="mentalStimulationNeeds" required>
+                                    <option value="">Select Rating</option>
+                                    <option value="1">1 - Low</option>
+                                    <option value="2">2 - Moderate</option>
+                                    <option value="3">3 - Good</option>
+                                    <option value="4">4 - High</option>
+                                    <option value="5">5 - Very High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Coat Colors:</label>
+                        <div id="coatColorsInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="coat-color-item" placeholder="Enter coat color">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('coatColorsInputs', 'coat-color-item')">Add Coat Color</button>
+                    </div>
+                    
+                    <h4>Rating Traits (1-5)</h4>
                     <div class="traits-grid">
                         <div class="trait-item">
                             <label for="jogging_partner">Jogging Partner:</label>
-                            <input type="number" id="jogging_partner" min="1" max="5" required>
+                            <select id="jogging_partner" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Poor</option>
+                                <option value="2">2 - Fair</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="lap_dog">Lap Dog:</label>
-                            <input type="number" id="lap_dog" min="1" max="5" required>
+                            <select id="lap_dog" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Poor</option>
+                                <option value="2">2 - Fair</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="good_with_children">Good with Children:</label>
-                            <input type="number" id="good_with_children" min="1" max="5" required>
+                            <select id="good_with_children" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Poor</option>
+                                <option value="2">2 - Fair</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="warm_weather">Warm Weather:</label>
-                            <input type="number" id="warm_weather" min="1" max="5" required>
+                            <select id="warm_weather" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Poor</option>
+                                <option value="2">2 - Fair</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="cold_weather">Cold Weather:</label>
-                            <input type="number" id="cold_weather" min="1" max="5" required>
+                            <select id="cold_weather" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Poor</option>
+                                <option value="2">2 - Fair</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="grooming_requirements">Grooming Requirements:</label>
-                            <input type="number" id="grooming_requirements" min="1" max="5" required>
+                            <select id="grooming_requirements" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Minimal</option>
+                                <option value="2">2 - Low</option>
+                                <option value="3">3 - Moderate</option>
+                                <option value="4">4 - High</option>
+                                <option value="5">5 - Very High</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="shedding">Shedding:</label>
-                            <input type="number" id="shedding" min="1" max="5" required>
+                            <select id="shedding" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Minimal</option>
+                                <option value="2">2 - Low</option>
+                                <option value="3">3 - Moderate</option>
+                                <option value="4">4 - High</option>
+                                <option value="5">5 - Very High</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="barking">Barking:</label>
-                            <input type="number" id="barking" min="1" max="5" required>
+                            <select id="barking" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Minimal</option>
+                                <option value="2">2 - Low</option>
+                                <option value="3">3 - Moderate</option>
+                                <option value="4">4 - High</option>
+                                <option value="5">5 - Very High</option>
+                            </select>
                         </div>
                         <div class="trait-item">
                             <label for="ease_of_training">Ease of Training:</label>
-                            <input type="number" id="ease_of_training" min="1" max="5" required>
+                            <select id="ease_of_training" required>
+                                <option value="">Select Rating</option>
+                                <option value="1">1 - Difficult</option>
+                                <option value="2">2 - Moderate</option>
+                                <option value="3">3 - Good</option>
+                                <option value="4">4 - Very Good</option>
+                                <option value="5">5 - Excellent</option>
+                            </select>
                         </div>
                     </div>
                 </div>
@@ -325,13 +731,69 @@
     <script src="js/navbar.js"></script>
     <script src="js/auth.js"></script>
     <script>
+        // Function to add new input field for array fields
+        function addInput(containerId, className, initialValue = '') {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = 'array-input-group';
+            
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.className = className;
+            input.value = initialValue;
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'remove-btn';
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = function() {
+                container.removeChild(div);
+            };
+            
+            div.appendChild(input);
+            div.appendChild(removeBtn);
+            container.appendChild(div);
+        }
+
+        // Function to add resource input with initial values
+        function addResourceInput(title = '', url = '') {
+            const container = document.getElementById('additionalResourcesInputs');
+            const div = document.createElement('div');
+            div.className = 'array-input-group';
+            
+            const titleInput = document.createElement('input');
+            titleInput.type = 'text';
+            titleInput.className = 'resource-title-item';
+            titleInput.placeholder = 'Resource Title';
+            titleInput.value = title;
+            
+            const urlInput = document.createElement('input');
+            urlInput.type = 'text';
+            urlInput.className = 'resource-url-item';
+            urlInput.placeholder = 'Resource URL';
+            urlInput.value = url;
+            
+            const removeBtn = document.createElement('button');
+            removeBtn.type = 'button';
+            removeBtn.className = 'remove-btn';
+            removeBtn.textContent = 'Remove';
+            removeBtn.onclick = function() {
+                container.removeChild(div);
+            };
+            
+            div.appendChild(titleInput);
+            div.appendChild(urlInput);
+            div.appendChild(removeBtn);
+            container.appendChild(div);
+        }
+
         // Function to get API base URL
         function getApiBaseUrl() {
             // Check if we're running locally or in production
             if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
                 return 'http://localhost:3000';
             } else {
-                // In production, use relative URLs (assumes frontend and backend deployed together)
+                // In production, use relative URLs
                 return '';
             }
         }
@@ -342,68 +804,16 @@
             return urlParams.get(param);
         }
 
-        // Function to add new input fields for arrays
-        function addInput(containerId, className) {
-            const container = document.getElementById(containerId);
-            const newGroup = document.createElement('div');
-            newGroup.className = 'array-input-group';
-            
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.className = className;
-            input.placeholder = `Enter ${containerId.replace('Inputs', '').toLowerCase()} item`;
-            
-            const removeBtn = document.createElement('button');
-            removeBtn.type = 'button';
-            removeBtn.textContent = 'Remove';
-            removeBtn.className = 'remove-btn';
-            removeBtn.onclick = () => newGroup.remove();
-            
-            newGroup.appendChild(input);
-            newGroup.appendChild(removeBtn);
-            container.appendChild(newGroup);
-        }
-
-        // Function to get all input values from array fields
-        function getArrayInputs(className) {
-            return Array.from(document.getElementsByClassName(className))
-                .map(input => input.value.trim())
-                .filter(value => value !== '');
-        }
-
-        // Function to show success message
-        function showSuccessMessage(message) {
-            const successDiv = document.createElement('div');
-            successDiv.className = 'success-message';
-            successDiv.textContent = message;
-            document.body.appendChild(successDiv);
-            
-            setTimeout(() => {
-                successDiv.style.opacity = '0';
-                successDiv.style.transform = 'translateY(-20px)';
-                setTimeout(() => successDiv.remove(), 500);
-            }, 3000);
-        }
-
-        // Function to populate array inputs
-        function populateArrayInputs(containerId, className, items) {
-            const container = document.getElementById(containerId);
-            container.innerHTML = items.map(item => `
-                <div class="array-input-group">
-                    <input type="text" class="${className}" value="${item}">
-                    <button type="button" class="remove-btn" onclick="this.parentElement.remove()">Remove</button>
-                </div>
-            `).join('');
-        }
-
-        // Function to load breed data and populate form
+        // Function to load breed data
         async function loadBreedData() {
             try {
                 const breedName = getUrlParam('breed');
                 if (!breedName) {
-                    throw new Error('Breed name not provided');
+                    alert('Breed name not provided in URL');
+                    window.location.href = 'breeds.html';
+                    return;
                 }
-
+                
                 const apiBaseUrl = getApiBaseUrl();
                 const response = await fetch(`${apiBaseUrl}/api/dogs`);
                 if (!response.ok) {
@@ -411,67 +821,437 @@
                 }
                 
                 const breeds = await response.json();
-                const breed = breeds.find(b => b.breed === decodeURIComponent(breedName));
+                
+                // Try to find breed by breedName (new structure) or breed (old structure)
+                let breed = breeds.find(b => b.breedName === breedName);
+                
+                // If not found with breedName, try with old structure
+                if (!breed) {
+                    breed = breeds.find(b => b.breed === breedName);
+                    
+                    // If found with old structure, convert to new structure
+                    if (breed) {
+                        breed = {
+                            breedName: breed.breed,
+                            image_url: breed.image_url,
+                            breedAbout: breed.description || '',
+                            groupClassification: breed.group || 'Not specified',
+                            physicalCharacteristics: {
+                                size: {
+                                    height: breed.basic_info?.height || 'Not specified',
+                                    weight: breed.basic_info?.weight || 'Not specified'
+                                }
+                            },
+                            temperament: {
+                                personalityTraits: Array.isArray(breed.temperament) ? breed.temperament : []
+                            },
+                            traits: breed.traits || {},
+                            history: breed.history || [],
+                            behavior: breed.behavior || [],
+                            exercise_needs: breed.exercise_needs || [],
+                            grooming: breed.grooming || [],
+                            nutrition: breed.nutrition || []
+                        };
+                    }
+                }
                 
                 if (!breed) {
                     throw new Error('Breed not found');
                 }
 
-                // Populate basic info
-                document.getElementById('breed').value = breed.breed;
-                document.getElementById('image_url').value = breed.image_url;
-                document.getElementById('lifespan').value = breed.basic_info.lifespan;
-                document.getElementById('height').value = breed.basic_info.height;
-                document.getElementById('weight').value = breed.basic_info.weight;
+                // Fill basic information
+                document.getElementById('breedName').value = breed.breedName || '';
+                document.getElementById('breedAbout').value = breed.breedAbout || '';
+                document.getElementById('groupClassification').value = breed.groupClassification || '';
+                document.getElementById('image_url').value = breed.image_url || '';
+                document.getElementById('height').value = breed.physicalCharacteristics?.size?.height || '';
+                document.getElementById('weight').value = breed.physicalCharacteristics?.size?.weight || '';
 
-                // Populate array fields
-                populateArrayInputs('historyInputs', 'history-item', breed.history);
-                populateArrayInputs('behaviorInputs', 'behavior-item', breed.behavior);
-                populateArrayInputs('exerciseInputs', 'exercise-item', breed.exercise_needs);
-                populateArrayInputs('groomingInputs', 'grooming-item', breed.grooming);
-                populateArrayInputs('nutritionInputs', 'nutrition-item', breed.nutrition);
+                // Fill origin and history
+                document.getElementById('countryOfOrigin').value = breed.originAndHistory?.countryOfOrigin || '';
+                document.getElementById('historicalDevelopment').value = breed.originAndHistory?.historicalDevelopment || '';
+                document.getElementById('bredFor').value = breed.originAndHistory?.bredFor || '';
 
-                // Populate traits
-                Object.entries(breed.traits).forEach(([trait, value]) => {
-                    document.getElementById(trait).value = value;
-                });
+                // Fill physical characteristics
+                if (breed.physicalCharacteristics?.distinctiveFeatures) {
+                    const container = document.getElementById('distinctiveFeaturesInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.physicalCharacteristics.distinctiveFeatures.forEach(feature => {
+                        addInput('distinctiveFeaturesInputs', 'distinctive-feature-item', feature);
+                    });
+                }
+
+                // Fill temperament
+                if (breed.temperament?.personalityTraits) {
+                    const container = document.getElementById('personalityTraitsInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.temperament.personalityTraits.forEach(trait => {
+                        addInput('personalityTraitsInputs', 'personality-trait-item', trait);
+                    });
+                }
+
+                document.getElementById('goodWithFamilies').value = breed.temperament?.goodWithFamilies || 'true';
+                document.getElementById('goodWithChildren').value = breed.temperament?.goodWithChildren || 'true';
+                document.getElementById('goodWithOtherPets').value = breed.temperament?.goodWithOtherPets || '';
+
+                // Fill exercise needs
+                document.getElementById('dailyExerciseTime').value = breed.exerciseNeeds?.dailyExerciseTime || '';
                 
+                if (breed.exerciseNeeds?.recommendedActivities) {
+                    const container = document.getElementById('recommendedActivitiesInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.exerciseNeeds.recommendedActivities.forEach(activity => {
+                        addInput('recommendedActivitiesInputs', 'recommended-activity-item', activity);
+                    });
+                }
+
+                if (breed.exerciseNeeds?.details) {
+                    const container = document.getElementById('exerciseNeedsInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.exerciseNeeds.details.forEach(detail => {
+                        addInput('exerciseNeedsInputs', 'exercise-needs-item', detail);
+                    });
+                }
+
+                // Fill grooming requirements
+                if (breed.groomingRequirements) {
+                    if (breed.groomingRequirements.coatMaintenance) {
+                        document.getElementById('coatMaintenance').value = breed.groomingRequirements.coatMaintenance;
+                    }
+                    if (breed.groomingRequirements.sheddingLevel) {
+                        document.getElementById('sheddingLevel').value = breed.groomingRequirements.sheddingLevel.toString();
+                    }
+                    if (breed.groomingRequirements.professionalGroomingRecommended) {
+                        document.getElementById('professionalGroomingRecommended').value = breed.groomingRequirements.professionalGroomingRecommended.toString();
+                    }
+                    if (breed.groomingRequirements.details) {
+                        const container = document.getElementById('groomingDetailsInputs');
+                        container.innerHTML = ''; // Clear existing inputs
+                        breed.groomingRequirements.details.forEach(detail => {
+                            addInput('groomingDetailsInputs', 'grooming-detail-item', detail);
+                        });
+                    }
+                }
+
+                // Fill health considerations
+                if (breed.healthConsiderations?.commonHealthIssues) {
+                    const container = document.getElementById('commonHealthIssuesInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.healthConsiderations.commonHealthIssues.forEach(issue => {
+                        addInput('commonHealthIssuesInputs', 'health-issue-item', issue);
+                    });
+                }
+
+                document.getElementById('averageLifespan').value = breed.healthConsiderations?.averageLifespan || '';
+
+                // Fill training and intelligence
+                document.getElementById('trainability').value = breed.trainingAndIntelligence?.trainability || '';
+                document.getElementById('intelligenceLevel').value = breed.trainingAndIntelligence?.intelligenceLevel || '';
+
+                if (breed.trainingAndIntelligence?.trainingChallenges) {
+                    const container = document.getElementById('trainingChallengesInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.trainingAndIntelligence.trainingChallenges.forEach(challenge => {
+                        addInput('trainingChallengesInputs', 'training-challenge-item', challenge);
+                    });
+                }
+
+                if (breed.trainingAndIntelligence?.recommendedTrainingMethods) {
+                    const container = document.getElementById('recommendedTrainingMethodsInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.trainingAndIntelligence.recommendedTrainingMethods.forEach(method => {
+                        addInput('recommendedTrainingMethodsInputs', 'training-method-item', method);
+                    });
+                }
+
+                // Fill living environment
+                document.getElementById('suitableForApartment').value = breed.livingEnvironment?.suitableForApartment || '';
+                document.getElementById('suitableForHouseWithYard').value = breed.livingEnvironment?.suitableForHouseWithYard || 'true';
+                document.getElementById('climateAdaptability').value = breed.livingEnvironment?.climateAdaptability || '';
+
+                // Fill recognition and standards
+                if (breed.recognitionAndStandards?.recognizedBy) {
+                    const container = document.getElementById('recognizedByInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.recognitionAndStandards.recognizedBy.forEach(org => {
+                        addInput('recognizedByInputs', 'recognized-by-item', org);
+                    });
+                }
+
+                document.getElementById('officialStandardLink').value = breed.recognitionAndStandards?.officialStandardLink || '';
+
+                // Fill additional resources
+                if (breed.additionalResources) {
+                    const container = document.getElementById('additionalResourcesInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.additionalResources.forEach(resource => {
+                        addResourceInput(resource.title, resource.url);
+                    });
+                }
+
+                // Fill related breeds
+                if (breed.relatedBreeds) {
+                    const container = document.getElementById('relatedBreedsInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.relatedBreeds.forEach(relatedBreed => {
+                        addInput('relatedBreedsInputs', 'related-breed-item', relatedBreed);
+                    });
+                }
+
+                // Fill behavior
+                if (breed.behavior) {
+                    const container = document.getElementById('behaviorInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.behavior.forEach(behavior => {
+                        addInput('behaviorInputs', 'behavior-item', behavior);
+                    });
+                }
+
+                // Fill nutrition
+                if (breed.nutrition) {
+                    const container = document.getElementById('nutritionInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.nutrition.forEach(nutrition => {
+                        addInput('nutritionInputs', 'nutrition-item', nutrition);
+                    });
+                }
+
+                // Fill history
+                if (breed.history) {
+                    const container = document.getElementById('historyInputs');
+                    container.innerHTML = ''; // Clear existing inputs
+                    breed.history.forEach(history => {
+                        addInput('historyInputs', 'history-item', history);
+                    });
+                }
+
+                // Fill traits
+                if (breed.traits) {
+                    // Family Life
+                    if (breed.traits.familyLife) {
+                        if (breed.traits.familyLife.affectionateWithFamily) {
+                            document.getElementById('affectionateWithFamily').value = breed.traits.familyLife.affectionateWithFamily.toString();
+                        }
+                        if (breed.traits.familyLife.goodWithYoungChildren) {
+                            document.getElementById('goodWithYoungChildren').value = breed.traits.familyLife.goodWithYoungChildren.toString();
+                        }
+                        if (breed.traits.familyLife.goodWithOtherDogs) {
+                            document.getElementById('goodWithOtherDogs').value = breed.traits.familyLife.goodWithOtherDogs.toString();
+                        }
+                    }
+
+                    // Social
+                    if (breed.traits.social) {
+                        if (breed.traits.social.opennessToStrangers) {
+                            document.getElementById('opennessToStrangers').value = breed.traits.social.opennessToStrangers.toString();
+                        }
+                        if (breed.traits.social.playfulnessLevel) {
+                            document.getElementById('playfulnessLevel').value = breed.traits.social.playfulnessLevel.toString();
+                        }
+                        if (breed.traits.social.watchdogProtectiveNature) {
+                            document.getElementById('watchdogProtectiveNature').value = breed.traits.social.watchdogProtectiveNature.toString();
+                        }
+                        if (breed.traits.social.adaptabilityLevel) {
+                            document.getElementById('adaptabilityLevel').value = breed.traits.social.adaptabilityLevel.toString();
+                        }
+                    }
+
+                    // Physical
+                    if (breed.traits.physical) {
+                        if (breed.traits.physical.coatGroomingFrequency) {
+                            document.getElementById('coatGroomingFrequency').value = breed.traits.physical.coatGroomingFrequency.toString();
+                        }
+                        if (breed.traits.physical.coatLength) {
+                            document.getElementById('coatLength').value = breed.traits.physical.coatLength;
+                        }
+                        if (breed.traits.physical.droolingLevel) {
+                            document.getElementById('droolingLevel').value = breed.traits.physical.droolingLevel.toString();
+                        }
+                        if (breed.traits.physical.coatTypeAndColor) {
+                            if (breed.traits.physical.coatTypeAndColor.coatType) {
+                                document.getElementById('coatType').value = breed.traits.physical.coatTypeAndColor.coatType;
+                            }
+                            if (breed.traits.physical.coatTypeAndColor.coatColors) {
+                                const container = document.getElementById('coatColorsInputs');
+                                container.innerHTML = ''; // Clear existing inputs
+                                breed.traits.physical.coatTypeAndColor.coatColors.forEach(color => {
+                                    addInput('coatColorsInputs', 'coat-color-item', color);
+                                });
+                            }
+                        }
+                        if (breed.traits.physical.sheddingLevel) {
+                            document.getElementById('sheddingLevel').value = breed.traits.physical.sheddingLevel.toString();
+                        }
+                    }
+
+                    // Personality
+                    if (breed.traits.personality) {
+                        if (breed.traits.personality.trainabilityLevel) {
+                            document.getElementById('trainabilityLevel').value = breed.traits.personality.trainabilityLevel.toString();
+                        }
+                        if (breed.traits.personality.energyLevel) {
+                            document.getElementById('energyLevel').value = breed.traits.personality.energyLevel.toString();
+                        }
+                        if (breed.traits.personality.barkingLevel) {
+                            document.getElementById('barkingLevel').value = breed.traits.personality.barkingLevel.toString();
+                        }
+                        if (breed.traits.personality.mentalStimulationNeeds) {
+                            document.getElementById('mentalStimulationNeeds').value = breed.traits.personality.mentalStimulationNeeds.toString();
+                        }
+                    }
+
+                    // Rating Traits
+                    if (breed.traits.jogging_partner) {
+                        document.getElementById('jogging_partner').value = breed.traits.jogging_partner.toString();
+                    }
+                    if (breed.traits.lap_dog) {
+                        document.getElementById('lap_dog').value = breed.traits.lap_dog.toString();
+                    }
+                    if (breed.traits.good_with_children) {
+                        document.getElementById('good_with_children').value = breed.traits.good_with_children.toString();
+                    }
+                    if (breed.traits.warm_weather) {
+                        document.getElementById('warm_weather').value = breed.traits.warm_weather.toString();
+                    }
+                    if (breed.traits.cold_weather) {
+                        document.getElementById('cold_weather').value = breed.traits.cold_weather.toString();
+                    }
+                    if (breed.traits.grooming_requirements) {
+                        document.getElementById('grooming_requirements').value = breed.traits.grooming_requirements.toString();
+                    }
+                    if (breed.traits.shedding) {
+                        document.getElementById('shedding').value = breed.traits.shedding.toString();
+                    }
+                    if (breed.traits.barking) {
+                        document.getElementById('barking').value = breed.traits.barking.toString();
+                    }
+                    if (breed.traits.ease_of_training) {
+                        document.getElementById('ease_of_training').value = breed.traits.ease_of_training.toString();
+                    }
+                }
+
             } catch (error) {
-                console.error('Error:', error);
+                console.error('Error loading breed data:', error);
                 alert('Failed to load breed data. Please try again.');
                 window.location.href = 'breeds.html';
             }
         }
 
-        // Function to handle form submission
-        async function handleSubmit(e) {
-            e.preventDefault();
-            
-            const submitButton = this.querySelector('button[type="submit"]');
-            submitButton.disabled = true;
-            submitButton.textContent = 'Updating...';
+        // Function to get array inputs
+        function getArrayInputs(className) {
+            return Array.from(document.getElementsByClassName(className))
+                .map(input => input.value.trim())
+                .filter(value => value !== '');
+        }
+
+        // Function to save breed data
+        async function saveBreedData(event) {
+            event.preventDefault();
             
             try {
                 const breedName = getUrlParam('breed');
-                const apiBaseUrl = getApiBaseUrl();
-                const response = await fetch(`${apiBaseUrl}/api/dogs`);
-                const breeds = await response.json();
+                if (!breedName) {
+                    alert('Breed name not provided in URL');
+                    return;
+                }
                 
-                // Create updated breed object
+                // Get form values
                 const updatedBreed = {
-                    breed: document.getElementById('breed').value,
+                    breedName: document.getElementById('breedName').value,
+                    breedAbout: document.getElementById('breedAbout').value,
+                    groupClassification: document.getElementById('groupClassification').value,
                     image_url: document.getElementById('image_url').value,
-                    basic_info: {
-                        lifespan: document.getElementById('lifespan').value,
-                        height: document.getElementById('height').value,
-                        weight: document.getElementById('weight').value
+                    physicalCharacteristics: {
+                        size: {
+                            height: document.getElementById('height').value,
+                            weight: document.getElementById('weight').value
+                        },
+                        distinctiveFeatures: getArrayInputs('distinctive-feature-item')
                     },
-                    history: getArrayInputs('history-item'),
+                    originAndHistory: {
+                        countryOfOrigin: document.getElementById('countryOfOrigin').value,
+                        historicalDevelopment: document.getElementById('historicalDevelopment').value,
+                        bredFor: document.getElementById('bredFor').value
+                    },
+                    temperament: {
+                        personalityTraits: getArrayInputs('personality-trait-item'),
+                        goodWithFamilies: document.getElementById('goodWithFamilies').value,
+                        goodWithChildren: document.getElementById('goodWithChildren').value,
+                        goodWithOtherPets: document.getElementById('goodWithOtherPets').value
+                    },
+                    exerciseNeeds: {
+                        dailyExerciseTime: document.getElementById('dailyExerciseTime').value,
+                        recommendedActivities: getArrayInputs('recommended-activity-item'),
+                        details: getArrayInputs('exercise-needs-item')
+                    },
+                    groomingRequirements: {
+                        coatMaintenance: document.getElementById('coatMaintenance').value,
+                        sheddingLevel: document.getElementById('sheddingLevel').value,
+                        professionalGroomingRecommended: document.getElementById('professionalGroomingRecommended').value,
+                        details: getArrayInputs('grooming-detail-item')
+                    },
+                    healthConsiderations: {
+                        commonHealthIssues: getArrayInputs('health-issue-item'),
+                        averageLifespan: document.getElementById('averageLifespan').value
+                    },
+                    trainingAndIntelligence: {
+                        trainability: document.getElementById('trainability').value,
+                        intelligenceLevel: document.getElementById('intelligenceLevel').value,
+                        trainingChallenges: getArrayInputs('training-challenge-item'),
+                        recommendedTrainingMethods: getArrayInputs('training-method-item')
+                    },
+                    livingEnvironment: {
+                        suitableForApartment: document.getElementById('suitableForApartment').value,
+                        suitableForHouseWithYard: document.getElementById('suitableForHouseWithYard').value,
+                        climateAdaptability: document.getElementById('climateAdaptability').value
+                    },
+                    recognitionAndStandards: {
+                        recognizedBy: getArrayInputs('recognized-by-item'),
+                        officialStandardLink: document.getElementById('officialStandardLink').value
+                    },
+                    additionalResources: Array.from(document.getElementsByClassName('array-input-group')).map(group => {
+                        const titleInput = group.querySelector('.resource-title-item');
+                        const urlInput = group.querySelector('.resource-url-item');
+                        if (titleInput && urlInput) {
+                            return {
+                                title: titleInput.value.trim(),
+                                url: urlInput.value.trim()
+                            };
+                        }
+                        return null;
+                    }).filter(resource => resource && resource.title && resource.url),
+                    relatedBreeds: getArrayInputs('related-breed-item'),
                     behavior: getArrayInputs('behavior-item'),
-                    exercise_needs: getArrayInputs('exercise-item'),
-                    grooming: getArrayInputs('grooming-item'),
                     nutrition: getArrayInputs('nutrition-item'),
+                    history: getArrayInputs('history-item'),
                     traits: {
+                        familyLife: {
+                            affectionateWithFamily: parseInt(document.getElementById('affectionateWithFamily').value),
+                            goodWithYoungChildren: parseInt(document.getElementById('goodWithYoungChildren').value),
+                            goodWithOtherDogs: parseInt(document.getElementById('goodWithOtherDogs').value)
+                        },
+                        social: {
+                            opennessToStrangers: parseInt(document.getElementById('opennessToStrangers').value),
+                            playfulnessLevel: parseInt(document.getElementById('playfulnessLevel').value),
+                            watchdogProtectiveNature: parseInt(document.getElementById('watchdogProtectiveNature').value),
+                            adaptabilityLevel: parseInt(document.getElementById('adaptabilityLevel').value)
+                        },
+                        physical: {
+                            coatGroomingFrequency: parseInt(document.getElementById('coatGroomingFrequency').value),
+                            coatLength: document.getElementById('coatLength').value,
+                            droolingLevel: parseInt(document.getElementById('droolingLevel').value),
+                            coatTypeAndColor: {
+                                coatType: document.getElementById('coatType').value,
+                                coatColors: getArrayInputs('coat-color-item')
+                            },
+                            sheddingLevel: parseInt(document.getElementById('sheddingLevel').value)
+                        },
+                        personality: {
+                            trainabilityLevel: parseInt(document.getElementById('trainabilityLevel').value),
+                            energyLevel: parseInt(document.getElementById('energyLevel').value),
+                            barkingLevel: parseInt(document.getElementById('barkingLevel').value),
+                            mentalStimulationNeeds: parseInt(document.getElementById('mentalStimulationNeeds').value)
+                        },
                         jogging_partner: parseInt(document.getElementById('jogging_partner').value),
                         lap_dog: parseInt(document.getElementById('lap_dog').value),
                         good_with_children: parseInt(document.getElementById('good_with_children').value),
@@ -483,40 +1263,84 @@
                         ease_of_training: parseInt(document.getElementById('ease_of_training').value)
                     }
                 };
-
-                // Update breed in array
-                const index = breeds.findIndex(b => b.breed === decodeURIComponent(breedName));
-                if (index !== -1) {
-                    breeds[index] = updatedBreed;
-                    
-                    // Save updated data
-                    await fetch(`${apiBaseUrl}/api/dogs`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(breeds)
-                    });
-
-                    showSuccessMessage('Breed updated successfully!');
-                    setTimeout(() => {
-                        window.location.href = 'breeds.html';
-                    }, 2000);
+                
+                // Validate form
+                if (!updatedBreed.breedName || !updatedBreed.image_url || 
+                    !updatedBreed.physicalCharacteristics.size.height || 
+                    !updatedBreed.physicalCharacteristics.size.weight) {
+                    alert('Please fill in all required fields');
+                    return;
                 }
+                
+                // Get all breeds
+                const apiBaseUrl = getApiBaseUrl();
+                const response = await fetch(`${apiBaseUrl}/api/dogs`);
+                if (!response.ok) {
+                    throw new Error('Failed to load breeds');
+                }
+                
+                const breeds = await response.json();
+                
+                // Find the breed to update
+                const breedIndex = breeds.findIndex(b => b.breedName === breedName || b.breed === breedName);
+                if (breedIndex === -1) {
+                    throw new Error('Breed not found');
+                }
+                
+                // Update the breed
+                breeds[breedIndex] = {
+                    ...breeds[breedIndex],
+                    ...updatedBreed
+                };
+                
+                // Save the updated breeds
+                const saveResponse = await fetch(`${apiBaseUrl}/api/dogs`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(breeds)
+                });
+                
+                if (!saveResponse.ok) {
+                    throw new Error('Failed to save breed');
+                }
+                
+                // Show success message
+                showSuccessMessage('Breed updated successfully');
+                
+                // Redirect to breeds page after a delay
+                setTimeout(() => {
+                    window.location.href = 'breeds.html';
+                }, 2000);
+                
             } catch (error) {
-                console.error('Error:', error);
-                alert('Failed to update breed. Please try again.');
-            } finally {
-                submitButton.disabled = false;
-                submitButton.textContent = 'Update Breed';
+                console.error('Error saving breed:', error);
+                alert('Failed to save breed. Please try again.');
             }
         }
 
-        // Add form submit handler
-        document.getElementById('editBreedForm').addEventListener('submit', handleSubmit);
+        // Function to show success message
+        function showSuccessMessage(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.textContent = message;
+            
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.style.opacity = '0';
+                setTimeout(() => {
+                    document.body.removeChild(successDiv);
+                }, 500);
+            }, 3000);
+        }
 
         // Load breed data when page loads
         window.addEventListener('load', loadBreedData);
+
+        // Handle form submission
+        document.getElementById('editBreedForm').addEventListener('submit', saveBreedData);
     </script>
 </body>
 </html> 

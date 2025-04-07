@@ -5,141 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Breed Form</title>
     <link rel="stylesheet" href="styles/navbar.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            background-color: #f0f2f5;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #ddd;
-        }
-
-        .form-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-
-        .form-section {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #dee2e6;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #444;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-
-        .array-inputs {
-            margin-bottom: 10px;
-        }
-
-        .array-input-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 8px;
-        }
-
-        .array-input-group input {
-            flex: 1;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .add-item-btn {
-            background-color: #28a745;
-            margin-bottom: 10px;
-        }
-
-        .remove-btn {
-            background-color: #dc3545;
-        }
-
-        .traits-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .trait-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .trait-item label {
-            flex: 1;
-            margin-bottom: 0;
-        }
-
-        .trait-item input {
-            width: 60px;
-        }
-
-        @media (max-width: 768px) {
-            .form-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .traits-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/form.css">
 </head>
 <body>
     <nav class="navbar">
@@ -169,36 +35,308 @@
                 <div class="form-section">
                     <h3>Basic Information</h3>
                     <div class="form-group">
-                        <label for="breed">Breed Name:</label>
-                        <input type="text" id="breed" required>
+                        <label for="breedName">Breed Name:</label>
+                        <input type="text" id="breedName" name="breedName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="breedAbout">Breed Description:</label>
+                        <textarea id="breedAbout" name="breedAbout" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="groupClassification">Group Classification:</label>
+                        <select id="groupClassification" name="groupClassification" required>
+                            <option value="">Select Group</option>
+                            <option value="Sporting Group">Sporting Group</option>
+                            <option value="Hound Group">Hound Group</option>
+                            <option value="Working Group">Working Group</option>
+                            <option value="Terrier Group">Terrier Group</option>
+                            <option value="Toy Group">Toy Group</option>
+                            <option value="Non-Sporting Group">Non-Sporting Group</option>
+                            <option value="Herding Group">Herding Group</option>
+                            <option value="Miscellaneous Class">Miscellaneous Class</option>
+                            <option value="Foundation Stock Service">Foundation Stock Service</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="image_url">Image URL:</label>
-                        <input type="text" id="image_url" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lifespan">Lifespan:</label>
-                        <input type="text" id="lifespan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="height">Height:</label>
-                        <input type="text" id="height" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="weight">Weight:</label>
-                        <input type="text" id="weight" required>
+                        <input type="text" id="image_url" name="image_url" required>
                     </div>
                 </div>
 
-                <!-- History Section -->
+                <!-- Origin and History Section -->
                 <div class="form-section">
-                    <h3>History</h3>
-                    <div id="historyInputs" class="array-inputs">
+                    <h3>Origin & History</h3>
+                    <div class="form-group">
+                        <label for="countryOfOrigin">Country of Origin:</label>
+                        <input type="text" id="countryOfOrigin" name="countryOfOrigin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="historicalDevelopment">Historical Development:</label>
+                        <textarea id="historicalDevelopment" name="historicalDevelopment"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="bredFor">Bred For:</label>
+                        <input type="text" id="bredFor" name="bredFor">
+                    </div>
+                </div>
+                
+                <!-- Physical Characteristics Section -->
+                <div class="form-section">
+                    <h3>Physical Characteristics</h3>
+                    <div class="form-group">
+                        <label for="height">Height:</label>
+                        <input type="text" id="height" name="height" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight:</label>
+                        <input type="text" id="weight" name="weight" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Distinctive Features:</label>
+                        <div id="distinctiveFeaturesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="distinctive-feature-item" placeholder="Enter distinctive feature">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('distinctiveFeaturesInputs', 'distinctive-feature-item')">Add Feature</button>
+                    </div>
+                </div>
+
+                <!-- Temperament Section -->
+                <div class="form-section">
+                    <h3>Temperament</h3>
+                    <div class="form-group">
+                        <label>Personality Traits:</label>
+                        <div id="personalityTraitsInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="personality-trait-item" placeholder="Enter personality trait">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('personalityTraitsInputs', 'personality-trait-item')">Add Trait</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodWithFamilies">Good With Families:</label>
+                        <select id="goodWithFamilies" name="goodWithFamilies">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodWithChildren">Good With Children:</label>
+                        <select id="goodWithChildren" name="goodWithChildren">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="goodWithOtherPets">Good With Other Pets:</label>
+                        <input type="text" id="goodWithOtherPets" name="goodWithOtherPets">
+                    </div>
+                </div>
+
+                <!-- Exercise Needs Section -->
+                <div class="form-section">
+                    <h3>Exercise Needs</h3>
+                    <div class="form-group">
+                        <label for="dailyExerciseTime">Daily Exercise Time:</label>
+                        <input type="text" id="dailyExerciseTime" name="dailyExerciseTime">
+                    </div>
+                    <div class="form-group">
+                        <label>Recommended Activities:</label>
+                        <div id="recommendedActivitiesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="recommended-activity-item" placeholder="Enter activity">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('recommendedActivitiesInputs', 'recommended-activity-item')">Add Activity</button>
+                    </div>
+                    
+                    <h4>Exercise Needs Details:</h4>
+                    <div id="exerciseNeedsInputs" class="array-inputs">
                         <div class="array-input-group">
-                            <input type="text" class="history-item" placeholder="Enter historical fact">
+                            <input type="text" class="exercise-needs-item" placeholder="Enter exercise need detail">
                         </div>
                     </div>
-                    <button type="button" class="add-item-btn" onclick="addInput('historyInputs', 'history-item')">Add History</button>
+                    <button type="button" class="add-item-btn" onclick="addInput('exerciseNeedsInputs', 'exercise-needs-item')">Add Exercise Detail</button>
+                </div>
+
+                <!-- Grooming Requirements Section -->
+                <div class="form-section">
+                    <h3>Grooming Requirements</h3>
+                    <div class="form-group">
+                        <label for="coatMaintenance">Coat Maintenance:</label>
+                        <select id="coatMaintenance" name="coatMaintenance">
+                            <option value="">Select Maintenance Level</option>
+                            <option value="Minimal brushing">Minimal brushing</option>
+                            <option value="Occasional brushing">Occasional brushing</option>
+                            <option value="Weekly brushing">Weekly brushing</option>
+                            <option value="Frequent brushing">Frequent brushing</option>
+                            <option value="Daily brushing">Daily brushing</option>
+                            <option value="Professional grooming recommended">Professional grooming recommended</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sheddingLevel">Shedding Level:</label>
+                        <select id="sheddingLevel" name="sheddingLevel">
+                            <option value="">Select Level</option>
+                            <option value="1">Minimal</option>
+                            <option value="2">Low</option>
+                            <option value="3">Average</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="professionalGroomingRecommended">Professional Grooming Recommended:</label>
+                        <select id="professionalGroomingRecommended" name="professionalGroomingRecommended">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    
+                    <h4>Grooming Details:</h4>
+                    <div id="groomingDetailsInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="grooming-detail-item" placeholder="Enter grooming detail">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('groomingDetailsInputs', 'grooming-detail-item')">Add Grooming Detail</button>
+                </div>
+
+                <!-- Health Considerations Section -->
+                <div class="form-section">
+                    <h3>Health Considerations</h3>
+                    <div class="form-group">
+                        <label>Common Health Issues:</label>
+                        <div id="commonHealthIssuesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="health-issue-item" placeholder="Enter health issue">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('commonHealthIssuesInputs', 'health-issue-item')">Add Health Issue</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="averageLifespan">Average Lifespan:</label>
+                        <input type="text" id="averageLifespan" name="averageLifespan">
+                    </div>
+                </div>
+
+                <!-- Training and Intelligence Section -->
+                <div class="form-section">
+                    <h3>Training & Intelligence</h3>
+                    <div class="form-group">
+                        <label for="trainability">Trainability:</label>
+                        <select id="trainability" name="trainability">
+                            <option value="">Select Level</option>
+                            <option value="1">Difficult</option>
+                            <option value="2">Moderate</option>
+                            <option value="3">Good</option>
+                            <option value="4">Very Good</option>
+                            <option value="5">Excellent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="intelligenceLevel">Intelligence Level:</label>
+                        <select id="intelligenceLevel" name="intelligenceLevel">
+                            <option value="">Select Level</option>
+                            <option value="1">Low</option>
+                            <option value="2">Average</option>
+                            <option value="4">High</option>
+                            <option value="5">Very High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Training Challenges:</label>
+                        <div id="trainingChallengesInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="training-challenge-item" placeholder="Enter training challenge">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('trainingChallengesInputs', 'training-challenge-item')">Add Challenge</button>
+                    </div>
+                    <div class="form-group">
+                        <label>Recommended Training Methods:</label>
+                        <div id="recommendedTrainingMethodsInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="training-method-item" placeholder="Enter training method">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('recommendedTrainingMethodsInputs', 'training-method-item')">Add Method</button>
+                    </div>
+                </div>
+
+                <!-- Living Environment Section -->
+                <div class="form-section">
+                    <h3>Living Environment</h3>
+                    <div class="form-group">
+                        <label for="suitableForApartment">Suitable For Apartment:</label>
+                        <select id="suitableForApartment" name="suitableForApartment">
+                            <option value="">Select Suitability</option>
+                            <option value="1">Not Recommended</option>
+                            <option value="2">Somewhat Suitable</option>
+                            <option value="3">Suitable with Sufficient Exercise</option>
+                            <option value="4">Very Suitable</option>
+                            <option value="5">Excellent</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="suitableForHouseWithYard">Suitable For House With Yard:</label>
+                        <select id="suitableForHouseWithYard" name="suitableForHouseWithYard">
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="climateAdaptability">Climate Adaptability:</label>
+                        <select id="climateAdaptability" name="climateAdaptability">
+                            <option value="">Select Adaptability</option>
+                            <option value="1">Poor - Sensitive to temperature extremes</option>
+                            <option value="2">Moderate - Can handle some temperature variation</option>
+                            <option value="3">Good - Adaptable to different climates</option>
+                            <option value="5">Excellent - Thrives in various climates</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Recognition and Standards Section -->
+                <div class="form-section">
+                    <h3>Recognition & Standards</h3>
+                    <div class="form-group">
+                        <label>Recognized By:</label>
+                        <div id="recognizedByInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="recognized-by-item" placeholder="Enter organization (e.g., AKC, FCI)">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('recognizedByInputs', 'recognized-by-item')">Add Organization</button>
+                    </div>
+                    <div class="form-group">
+                        <label for="officialStandardLink">AKC Standard Link:</label>
+                        <input type="text" id="officialStandardLink" name="officialStandardLink" placeholder="https://www.akc.org/dog-breeds/...">
+                    </div>
+                </div>
+
+                <!-- Additional Resources Section -->
+                <div class="form-section">
+                    <h3>Additional Resources</h3>
+                    <div id="additionalResourcesInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="resource-title-item" placeholder="Resource Title">
+                            <input type="text" class="resource-url-item" placeholder="Resource URL">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addResourceInput()">Add Resource</button>
+                </div>
+
+                <!-- Related Breeds Section -->
+                <div class="form-section">
+                    <h3>Related Breeds</h3>
+                    <div id="relatedBreedsInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="related-breed-item" placeholder="Enter related breed">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('relatedBreedsInputs', 'related-breed-item')">Add Related Breed</button>
                 </div>
 
                 <!-- Behavior Section -->
@@ -209,29 +347,7 @@
                             <input type="text" class="behavior-item" placeholder="Enter behavior trait">
                         </div>
                     </div>
-                    <button type="button" class="add-item-btn" onclick="addInput('behaviorInputs', 'behavior-item')">Add Behavior</button>
-                </div>
-
-                <!-- Exercise Section -->
-                <div class="form-section">
-                    <h3>Exercise Needs</h3>
-                    <div id="exerciseInputs" class="array-inputs">
-                        <div class="array-input-group">
-                            <input type="text" class="exercise-item" placeholder="Enter exercise need">
-                        </div>
-                    </div>
-                    <button type="button" class="add-item-btn" onclick="addInput('exerciseInputs', 'exercise-item')">Add Exercise</button>
-                </div>
-
-                <!-- Grooming Section -->
-                <div class="form-section">
-                    <h3>Grooming</h3>
-                    <div id="groomingInputs" class="array-inputs">
-                        <div class="array-input-group">
-                            <input type="text" class="grooming-item" placeholder="Enter grooming requirement">
-                        </div>
-                    </div>
-                    <button type="button" class="add-item-btn" onclick="addInput('groomingInputs', 'grooming-item')">Add Grooming</button>
+                    <button type="button" class="add-item-btn" onclick="addInput('behaviorInputs', 'behavior-item')">Add Behavior Trait</button>
                 </div>
 
                 <!-- Nutrition Section -->
@@ -242,48 +358,261 @@
                             <input type="text" class="nutrition-item" placeholder="Enter nutrition information">
                         </div>
                     </div>
-                    <button type="button" class="add-item-btn" onclick="addInput('nutritionInputs', 'nutrition-item')">Add Nutrition</button>
+                    <button type="button" class="add-item-btn" onclick="addInput('nutritionInputs', 'nutrition-item')">Add Nutrition Info</button>
+                </div>
+
+                <!-- History Section -->
+                <div class="form-section">
+                    <h3>History</h3>
+                    <div id="historyInputs" class="array-inputs">
+                        <div class="array-input-group">
+                            <input type="text" class="history-item" placeholder="Enter historical fact">
+                        </div>
+                    </div>
+                    <button type="button" class="add-item-btn" onclick="addInput('historyInputs', 'history-item')">Add History Fact</button>
                 </div>
 
                 <!-- Traits Section -->
                 <div class="form-section full-width">
-                    <h3>Traits (Rate 1-5)</h3>
+                    <h3>Traits</h3>
+                    
+                    <div class="traits-container">
+                        <!-- First Column -->
+                        <div class="traits-column">
+                            <h4>Family Life</h4>
+                            <div class="form-group">
+                                <label for="affectionateWithFamily">Affectionate With Family:</label>
+                                <select id="affectionateWithFamily" name="affectionateWithFamily">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="goodWithYoungChildren">Good With Young Children:</label>
+                                <select id="goodWithYoungChildren" name="goodWithYoungChildren">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Poor</option>
+                                    <option value="2">Fair</option>
+                                    <option value="3">Good</option>
+                                    <option value="4">Very Good</option>
+                                    <option value="5">Excellent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="goodWithOtherDogs">Good With Other Dogs:</label>
+                                <select id="goodWithOtherDogs" name="goodWithOtherDogs">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Poor</option>
+                                    <option value="2">Fair</option>
+                                    <option value="3">Moderate</option>
+                                    <option value="4">Good</option>
+                                    <option value="5">Very Good</option>
+                                </select>
+                            </div>
+                            
+                            <h4>Social</h4>
+                            <div class="form-group">
+                                <label for="opennessToStrangers">Openness To Strangers:</label>
+                                <select id="opennessToStrangers" name="opennessToStrangers">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Reserved</option>
+                                    <option value="2">Cautious</option>
+                                    <option value="3">Moderate</option>
+                                    <option value="4">Friendly</option>
+                                    <option value="5">Very Friendly</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="playfulnessLevel">Playfulness Level:</label>
+                                <select id="playfulnessLevel" name="playfulnessLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="watchdogProtectiveNature">Watchdog/Protective Nature:</label>
+                                <select id="watchdogProtectiveNature" name="watchdogProtectiveNature">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="adaptabilityLevel">Adaptability Level:</label>
+                                <select id="adaptabilityLevel" name="adaptabilityLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="3">Good</option>
+                                    <option value="4">Very Good</option>
+                                    <option value="5">Excellent</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Second Column -->
+                        <div class="traits-column">
+                            <h4>Physical</h4>
+                            <div class="form-group">
+                                <label for="coatGroomingFrequency">Coat Grooming Frequency:</label>
+                                <select id="coatGroomingFrequency" name="coatGroomingFrequency">
+                                    <option value="">Select Frequency</option>
+                                    <option value="1">Very Low</option>
+                                    <option value="2">Low</option>
+                                    <option value="3">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="coatLength">Coat Length:</label>
+                                <select id="coatLength" name="coatLength">
+                                    <option value="">Select Length</option>
+                                    <option value="Short">Short</option>
+                                    <option value="Medium">Medium</option>
+                                    <option value="Long">Long</option>
+                                    <option value="Variable">Variable</option>
+                                    <option value="Hairless">Hairless</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="droolingLevel">Drooling Level:</label>
+                                <select id="droolingLevel" name="droolingLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Minimal</option>
+                                    <option value="2">Low</option>
+                                    <option value="3">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="coatType">Coat Type:</label>
+                                <select id="coatType" name="coatType">
+                                    <option value="">Select Coat Type</option>
+                                    <option value="Short, smooth coat">Short, smooth coat</option>
+                                    <option value="Medium-length coat">Medium-length coat</option>
+                                    <option value="Long coat">Long coat</option>
+                                    <option value="Double coat">Double coat</option>
+                                    <option value="Wire-haired coat">Wire-haired coat</option>
+                                    <option value="Curly coat">Curly coat</option>
+                                    <option value="Silky coat">Silky coat</option>
+                                    <option value="Corded coat">Corded coat</option>
+                                    <option value="Hairless">Hairless</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sheddingLevel">Shedding Level:</label>
+                                <select id="sheddingLevel" name="sheddingLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Minimal</option>
+                                    <option value="2">Low</option>
+                                    <option value="3">Average</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            
+                            <h4>Personality</h4>
+                            <div class="form-group">
+                                <label for="trainabilityLevel">Trainability Level:</label>
+                                <select id="trainabilityLevel" name="trainabilityLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Challenging</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="3">Good</option>
+                                    <option value="4">Very Good</option>
+                                    <option value="5">Excellent</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="energyLevel">Energy Level:</label>
+                                <select id="energyLevel" name="energyLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="barkingLevel">Barking Level:</label>
+                                <select id="barkingLevel" name="barkingLevel">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mentalStimulationNeeds">Mental Stimulation Needs:</label>
+                                <select id="mentalStimulationNeeds" name="mentalStimulationNeeds">
+                                    <option value="">Select Level</option>
+                                    <option value="1">Low</option>
+                                    <option value="2">Moderate</option>
+                                    <option value="4">High</option>
+                                    <option value="5">Very High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Coat Colors:</label>
+                        <div id="coatColorsInputs" class="array-inputs">
+                            <div class="array-input-group">
+                                <input type="text" class="coat-color-item" placeholder="Enter coat color">
+                            </div>
+                        </div>
+                        <button type="button" class="add-item-btn" onclick="addInput('coatColorsInputs', 'coat-color-item')">Add Coat Color</button>
+                    </div>
+                    
+                    <h4>Rating Traits (1-5)</h4>
                     <div class="traits-grid">
                         <div class="trait-item">
                             <label for="jogging_partner">Jogging Partner:</label>
-                            <input type="number" id="jogging_partner" min="1" max="5" required>
+                            <input type="number" id="jogging_partner" name="jogging_partner" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="lap_dog">Lap Dog:</label>
-                            <input type="number" id="lap_dog" min="1" max="5" required>
+                            <input type="number" id="lap_dog" name="lap_dog" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="good_with_children">Good with Children:</label>
-                            <input type="number" id="good_with_children" min="1" max="5" required>
+                            <input type="number" id="good_with_children" name="good_with_children" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="warm_weather">Warm Weather:</label>
-                            <input type="number" id="warm_weather" min="1" max="5" required>
+                            <input type="number" id="warm_weather" name="warm_weather" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="cold_weather">Cold Weather:</label>
-                            <input type="number" id="cold_weather" min="1" max="5" required>
+                            <input type="number" id="cold_weather" name="cold_weather" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="grooming_requirements">Grooming Requirements:</label>
-                            <input type="number" id="grooming_requirements" min="1" max="5" required>
+                            <input type="number" id="grooming_requirements" name="grooming_requirements" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="shedding">Shedding:</label>
-                            <input type="number" id="shedding" min="1" max="5" required>
+                            <input type="number" id="shedding" name="shedding" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="barking">Barking:</label>
-                            <input type="number" id="barking" min="1" max="5" required>
+                            <input type="number" id="barking" name="barking" min="1" max="5" required>
                         </div>
                         <div class="trait-item">
                             <label for="ease_of_training">Ease of Training:</label>
-                            <input type="number" id="ease_of_training" min="1" max="5" required>
+                            <input type="number" id="ease_of_training" name="ease_of_training" min="1" max="5" required>
                         </div>
                     </div>
                 </div>
@@ -294,6 +623,7 @@
             </div>
         </form>
     </div>
+    
     <script src="js/navbar.js"></script>
     <script src="js/auth.js"></script>
     <script src="script.js"></script>

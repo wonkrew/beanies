@@ -1,0 +1,114 @@
+{
+  "breedName": "Affenpinscher",
+  "breedAbout": "The Affenpinscher is a small but feisty toy breed known for its monkey-like facial expressions and lively personality. Originally bred in Germany, it was used to hunt and eliminate rats in homes and stables.",
+  "groupClassification": "Toy Group",
+  "originAndHistory": {
+    "countryOfOrigin": "Germany",
+    "historicalDevelopment": "Affenpinschers date back to the 1600s. They were developed in Germany to serve as ratters in homes, stables, and shops.",
+    "bredFor": "Ratting and companionship"
+  },
+  "physicalCharacteristics": {
+    "size": {
+      "height": "9.5 to 11.5 inches",
+      "weight": "7 to 10 pounds"
+    },
+    
+    "distinctiveFeatures": [
+      "Monkey-like facial expression",
+      "Short muzzle",
+      "Bushy eyebrows",
+      "Tail carried high"
+    ]
+  },
+  "temperament": {
+    "personalityTraits": ["Confident", "Curious", "Stubborn", "Loyal"],
+    "goodWithFamilies": true,
+    "goodWithChildren": true,
+    "goodWithOtherPets": "Varies with socialization"
+  },
+  "exerciseNeeds": {
+    "dailyExerciseTime": "30 to 60 minutes",
+    "recommendedActivities": ["Indoor play", "Leash walking", "Fetch"]
+  },
+  "groomingRequirements": {
+    "coatMaintenance": "Weekly brushing; occasional trimming",
+    "sheddingLevel": "Low",
+    "professionalGroomingRecommended": true
+  },
+  "healthConsiderations": {
+    "commonHealthIssues": ["Hip dysplasia", "Luxating patella", "Eye problems"],
+    "averageLifespan": "12 to 15 years"
+  },
+  "trainingAndIntelligence": {
+    "trainability": "Moderate",
+    "intelligenceLevel": "High",
+    "trainingChallenges": ["Easily bored", "Can be stubborn"],
+    "recommendedTrainingMethods": [
+      "Positive reinforcement",
+      "Short, engaging sessions"
+    ]
+  },
+  "livingEnvironment": {
+    "suitableForApartment": true,
+    "suitableForHouseWithYard": true,
+    "climateAdaptability": "Best in moderate climates; sensitive to heat"
+  },
+  "recognitionAndStandards": {
+    "recognizedBy": ["AKC", "FCI", "UKC"],
+    "officialStandardLinks": {
+      "AKC": "https://www.akc.org/dog-breeds/affenpinscher/",
+      "FCI": "http://www.fci.be/en/nomenclature/AFFENPINSCHER-186.html"
+    }
+  },
+  "additionalResources": [
+    {
+      "title": "Affenpinscher Club of America",
+      "url": "https://www.affenpinscher.org/"
+    },
+    {
+      "title": "Affenpinscher Rescue",
+      "url": "https://www.affenpinscherrescue.org/"
+    }
+  ],
+  "media": {
+    "imageGallery": [
+      "https://example.com/images/affen1.jpg",
+      "https://example.com/images/affen2.jpg"
+    ],
+    "videoUrl": "https://youtube.com/embed/sample-breed-video"
+  },
+  "relatedBreeds": [
+    "Brussels Griffon",
+    "Miniature Schnauzer",
+    "Yorkshire Terrier"
+  ],
+  "traits": {
+    "familyLife": {
+      "affectionateWithFamily": "",
+      "goodWithYoungChildren": "",
+      "goodWithOtherDogs": ""
+    },
+    "physical": {
+      "coatGroomingFrequency": "",
+      "coatLength": "",
+      "droolingLevel": "",
+      "sheddingLevel": "",
+      "coatTypeAndColor": {
+        "coatType": "Rough, wiry coat",
+        "coatColors": ["Black", "Gray", "Silver", "Red", "Tan", "Black & Tan"]
+      }
+    },
+    "social": {
+      "opennessToStrangers": "",
+      "playfulnessLevel": "",
+      "watchdogProtectiveNature": "",
+      "adaptabilityLevel": ""
+    },
+    "personality": {
+      "trainabilityLevel": "",
+      "energyLevel": "",
+      "barkingLevel": "",
+      "mentalStimulationNeeds": ""
+    }
+  }
+}

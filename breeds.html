@@ -443,8 +443,46 @@
                     throw new Error('Failed to load breeds');
                 }
                 const breeds = await response.json();
-                window.allBreeds = breeds;
-                displayBreeds(breeds);
+                
+                // Convert all breeds to the same format
+                const normalizedBreeds = breeds.map(breed => {
+                    // If it's already in the new format
+                    if (breed.breedName) {
+                        return breed;
+                    }
+                    // If it's in the old format
+                    else if (breed.breed) {
+                        return {
+                            breedName: breed.breed,
+                            image_url: breed.image_url || '',
+                            groupClassification: breed.group || 'Not specified',
+                            physicalCharacteristics: {
+                                size: {
+                                    height: breed.basic_info?.height || 'Not specified',
+                                    weight: breed.basic_info?.weight || 'Not specified'
+                                }
+                            },
+                            traits: breed.traits || {}
+                        };
+                    }
+                    // If format is unknown, create a minimal valid object
+                    else {
+                        return {
+                            breedName: 'Unknown breed',
+                            image_url: breed.image_url || '',
+                            groupClassification: 'Not specified',
+                            physicalCharacteristics: {
+                                size: {
+                                    height: 'Not specified',
+                                    weight: 'Not specified'
+                                }
+                            }
+                        };
+                    }
+                });
+                
+                window.allBreeds = normalizedBreeds;
+                displayBreeds(normalizedBreeds);
             } catch (error) {
                 console.error('Error loading breeds:', error);
                 document.getElementById('breedsGrid').innerHTML = 
@@ -462,29 +500,29 @@
 
             breedsGrid.innerHTML = breeds.map(breed => `
                 <div class="breed-card">
-                    <img src="${breed.image_url}" alt="${breed.breed}" class="breed-image">
+                    <img src="${breed.image_url}" alt="${breed.breedName}" class="breed-image">
                     <div class="breed-info">
                         <div class="breed-content">
-                            <h2 class="breed-name">${breed.breed}</h2>
+                            <h2 class="breed-name">${breed.breedName}</h2>
                             <div class="breed-basic-info">
                                 <p>
-                                    <span>Lifespan</span>
-                                    <span>${breed.basic_info.lifespan}</span>
+                                    <span>Group</span>
+                                    <span>${breed.groupClassification || 'Not specified'}</span>
                                 </p>
                                 <p>
                                     <span>Height</span>
-                                    <span>${breed.basic_info.height}</span>
+                                    <span>${breed.physicalCharacteristics?.size?.height || 'Not specified'}</span>
                                 </p>
                                 <p>
                                     <span>Weight</span>
-                                    <span>${breed.basic_info.weight}</span>
+                                    <span>${breed.physicalCharacteristics?.size?.weight || 'Not specified'}</span>
                                 </p>
                             </div>
                         </div>
                         <div class="breed-actions">
-                            <a href="breed-details.html?breed=${encodeURIComponent(breed.breed)}" class="view-details">View</a>
-                            <a href="edit-breed.html?breed=${encodeURIComponent(breed.breed)}" class="edit-breed">Edit</a>
-                            <button onclick="deleteDogBreed('${breed.breed.replace(/'/g, "\\'")}')" class="delete-breed">Delete</button>
+                            <a href="breed-details.html?breed=${encodeURIComponent(breed.breedName)}" class="view-details">View</a>
+                            <a href="edit-breed.html?breed=${encodeURIComponent(breed.breedName)}" class="edit-breed">Edit</a>
+                            <button onclick="deleteDogBreed('${breed.breedName.replace(/'/g, "\\'")}')" class="delete-breed">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -496,7 +534,7 @@
             if (!window.allBreeds) return;
             
             const filteredBreeds = window.allBreeds.filter(breed => 
-                breed.breed.toLowerCase().includes(searchTerm)
+                breed.breedName.toLowerCase().includes(searchTerm)
             );
             
             displayBreeds(filteredBreeds);
@@ -504,6 +542,60 @@
 
         function editBreed(breedName) {
             window.location.href = `edit-breed.html?breed=${breedName}`;
+        }
+
+        // Function to delete a dog breed
+        async function deleteDogBreed(breedName) {
+            if (!confirm(`Are you sure you want to delete ${breedName}?`)) {
+                return;
+            }
+            
+            try {
+                const apiBaseUrl = getApiBaseUrl();
+                const response = await fetch(`${apiBaseUrl}/api/dogs/${encodeURIComponent(breedName)}`, {
+                    method: 'DELETE'
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Failed to delete dog breed');
+                }
+                
+                // Show success message
+                showSuccessMessage(`${breedName} has been deleted successfully!`);
+                
+                // Reload the breeds list after a short delay
+                setTimeout(() => {
+                    loadBreeds();
+                }, 1000);
+                
+            } catch (error) {
+                console.error('Error deleting dog breed:', error);
+                alert('Failed to delete dog breed. Please try again.');
+            }
+        }
+        
+        function showSuccessMessage(message) {
+            const successDiv = document.createElement('div');
+            successDiv.style.position = 'fixed';
+            successDiv.style.top = '20px';
+            successDiv.style.left = '50%';
+            successDiv.style.transform = 'translateX(-50%)';
+            successDiv.style.padding = '12px 24px';
+            successDiv.style.backgroundColor = '#4CAF50';
+            successDiv.style.color = 'white';
+            successDiv.style.borderRadius = '5px';
+            successDiv.style.zIndex = '1000';
+            successDiv.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            successDiv.style.transition = 'opacity 0.5s, transform 0.5s';
+            successDiv.textContent = message;
+            
+            document.body.appendChild(successDiv);
+            
+            setTimeout(() => {
+                successDiv.style.opacity = '0';
+                successDiv.style.transform = 'translateX(-50%) translateY(-20px)';
+                setTimeout(() => successDiv.remove(), 500);
+            }, 3000);
         }
 
         window.addEventListener('load', loadBreeds);
